@@ -28,6 +28,10 @@ public class Product {
     @JoinColumn(name= "id_city")
     private City city;
 
+    @ManyToOne(fetch= FetchType.EAGER)
+    @JoinColumn(name= "id_category")
+    private Category category;
+
     @OneToMany(mappedBy = "product")
     @JsonIgnore
     private List<Image> images;
@@ -39,23 +43,25 @@ public class Product {
     public Product() {
     }
 
-    public Product(Long idProduct, String productTitle, String productDescription, Double productPrice, Boolean productAvailable, City city, List<Image> images, List<Characteristic> characteristics) {
+    public Product(Long idProduct, String productTitle, String productDescription, Double productPrice, Boolean productAvailable, City city, Category category, List<Image> images, List<Characteristic> characteristics) {
         this.idProduct = idProduct;
         this.productTitle = productTitle;
         this.productDescription = productDescription;
         this.productPrice = productPrice;
         this.productAvailable = productAvailable;
         this.city = city;
+        this.category = category;
         this.images = images;
         this.characteristics = characteristics;
     }
 
-    public Product(String productTitle, String productDescription, Double productPrice, Boolean productAvailable, City city, List<Image> images, List<Characteristic> characteristics) {
+    public Product(String productTitle, String productDescription, Double productPrice, Boolean productAvailable, City city, Category category, List<Image> images, List<Characteristic> characteristics) {
         this.productTitle = productTitle;
         this.productDescription = productDescription;
         this.productPrice = productPrice;
         this.productAvailable = productAvailable;
         this.city = city;
+        this.category = category;
         this.images = images;
         this.characteristics = characteristics;
     }
@@ -106,6 +112,14 @@ public class Product {
 
     public void setCity(City city) {
         this.city = city;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public List<Image> getImages() {

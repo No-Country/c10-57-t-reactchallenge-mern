@@ -21,4 +21,52 @@ public class Image {
     @JoinColumn(name="id_product", nullable = false)
     private Product product;
 
+
+    public Image() {
+    }
+
+    public Image(Long idImage, String imageTitle, String imageUrl, Product product) {
+        this.idImage = idImage;
+        this.imageTitle = imageTitle;
+        this.imageUrl = imageUrl;
+        this.product = product;
+    }
+
+    public Image(String imageTitle, String imageUrl, Product product) {
+        this.imageTitle = imageTitle;
+        this.imageUrl = imageUrl;
+        this.product = product;
+    }
+
+    public Long getIdImage() {
+        return idImage;
+    }
+
+    public void setIdImage(Long idImage) {
+        this.idImage = idImage;
+    }
+
+    public String getImageTitle() {
+        return imageTitle;
+    }
+
+    public void setImageTitle(String imageTitle) {
+        this.imageTitle = imageTitle;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 }
