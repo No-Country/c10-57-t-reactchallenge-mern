@@ -3,6 +3,12 @@
 }
 
 .menu{
-    background: #ffffff
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 0.6em 1.2em;
+    cursor: pointer;;
+}
 
+.menu:focus, menu:focus-visible {
+    border-color: #93edf1;
 }
