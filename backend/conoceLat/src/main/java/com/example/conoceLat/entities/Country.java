@@ -1,10 +1,11 @@
-package com.example.conoceLat.model;
+package com.example.conoceLat.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="country")
-public class Country {
+public class Country implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +20,10 @@ public class Country {
 
     public Country(Long idCountry, String cityName) {
         this.idCountry = idCountry;
+        this.cityName = cityName;
+    }
+
+    public Country(String cityName) {
         this.cityName = cityName;
     }
 

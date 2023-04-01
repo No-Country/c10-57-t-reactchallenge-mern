@@ -1,10 +1,11 @@
-package com.example.conoceLat.model;
+package com.example.conoceLat.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name ="image")
-public class Image {
+public class Image implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

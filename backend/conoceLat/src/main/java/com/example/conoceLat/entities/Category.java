@@ -1,15 +1,15 @@
-package com.example.conoceLat.model;
+package com.example.conoceLat.entities;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name="category")
-public class Category {
+public class Category implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

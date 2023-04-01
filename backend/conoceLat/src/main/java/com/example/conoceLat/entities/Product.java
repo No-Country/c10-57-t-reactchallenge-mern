@@ -1,11 +1,14 @@
-package com.example.conoceLat.model;
+package com.example.conoceLat.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
 
-public class Product {
+@Entity
+@Table(name="product")
+public class Product implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
