@@ -43,10 +43,14 @@ public class Product implements Serializable {
     @JoinTable(name= "product_has_characteristic", joinColumns = @JoinColumn(name="id_product"), inverseJoinColumns=@JoinColumn(name="id_characteristic"))
     private List<Characteristic> characteristics;
 
+    @OneToMany(mappedBy = "product")
+    @JsonIgnore
+    private List<Booking> bookings;
+
     public Product() {
     }
 
-    public Product(Long idProduct, String productTitle, String productDescription, Double productPrice, Boolean productAvailable, City city, Category category, List<Image> images, List<Characteristic> characteristics) {
+    public Product(Long idProduct, String productTitle, String productDescription, Double productPrice, Boolean productAvailable, City city, Category category, List<Image> images, List<Characteristic> characteristics, List<Booking> bookings) {
         this.idProduct = idProduct;
         this.productTitle = productTitle;
         this.productDescription = productDescription;
@@ -56,6 +60,7 @@ public class Product implements Serializable {
         this.category = category;
         this.images = images;
         this.characteristics = characteristics;
+        this.bookings = bookings;
     }
 
     public Product(String productTitle, String productDescription, Double productPrice, Boolean productAvailable, City city, Category category, List<Image> images, List<Characteristic> characteristics) {
@@ -109,6 +114,10 @@ public class Product implements Serializable {
         this.productAvailable = productAvailable;
     }
 
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
     public City getCity() {
         return city;
     }
@@ -139,5 +148,9 @@ public class Product implements Serializable {
 
     public void setCharacteristics(List<Characteristic> characteristics) {
         this.characteristics = characteristics;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
     }
 }

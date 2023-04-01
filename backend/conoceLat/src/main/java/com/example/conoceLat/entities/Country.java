@@ -13,18 +13,18 @@ public class Country implements Serializable {
     private Long idCountry;
 
     @Column(name = "country_name", nullable = false, unique = true)
-    private String cityName;
+    private String countryName;
 
     public Country() {
     }
 
-    public Country(Long idCountry, String cityName) {
+    public Country(Long idCountry, String countryName) {
         this.idCountry = idCountry;
-        this.cityName = cityName;
+        this.countryName = countryName;
     }
 
-    public Country(String cityName) {
-        this.cityName = cityName;
+    public Country(String countryName) {
+        this.countryName = countryName;
     }
 
     public Long getIdCountry() {
@@ -36,10 +36,10 @@ public class Country implements Serializable {
     }
 
     public String getCityName() {
-        return cityName;
+        return countryName;
     }
 
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
+    public void setCityName(String countryName) {
+        this.countryName = countryName;
     }
 }
