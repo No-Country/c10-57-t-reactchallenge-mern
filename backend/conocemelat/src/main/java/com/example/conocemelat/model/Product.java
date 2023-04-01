@@ -56,7 +56,7 @@ public class Product {
         this.city = city;
         this.category = category;
         this.characteristics = characteristics;
-        //this.imagesProduct = imagesProduct;
+        this.imagesProduct = imagesProduct;
     }
 
     public Product(String productTitle, String productDescription, Double productPrice, Boolean productAvailable, City city, Category category, List<Characteristic> characteristics, Set<Image> imagesProduct) {
@@ -67,7 +67,7 @@ public class Product {
         this.city = city;
         this.category = category;
         this.characteristics = characteristics;
-        //this.imagesProduct = imagesProduct;
+        this.imagesProduct = imagesProduct;
     }
 
     public Long getIdProduct() {
