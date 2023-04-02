@@ -1,18 +1,16 @@
 package com.example.conocemelat.service;
 
-import com.example.conocemelat.model.User;
+import com.example.conocemelat.model.Role;
 
 import java.util.List;
 
-public interface UserService {
-    public List<User> listAllUsers();
+public interface RoleService {
+    public List<Role> listAllRoles();
 
-    public User saveUser(User user);
+    public Role saveRole(Role user);
 
-    public User getUserById(Long id);
+    public Role getRoleById(Long id);
 
-    public User updateUser(User user);
-
-    public void deleteUser(Long id);
+    public void deleteRole(Long id);
 
 }

@@ -1,7 +1,7 @@
 package com.example.conocemelat.controller;
 
-import com.example.conocemelat.model.User;
-import com.example.conocemelat.service.UserService;
+import com.example.conocemelat.model.Role;
+import com.example.conocemelat.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,28 +11,28 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/pUsers")
-public class UserController {
+@RequestMapping("/roles")
+public class RoleController {
 
     @Autowired
-    private UserService userService;
+    private RoleService roleService;
 
     @PostMapping("/save")
-    public ResponseEntity<User> saveUser(@RequestBody User user){
-        return ResponseEntity.ok(userService.saveUser(user));
+    public ResponseEntity<Role> saveRole(@RequestBody Role role){
+        return ResponseEntity.ok(roleService.saveRole(role));
     }
 
     @GetMapping("/list")
-    public ResponseEntity<List<User>> listAllPUsers(){
-        return ResponseEntity.ok(userService.listAllUsers());
+    public ResponseEntity<List<Role>> listAllRoles(){
+        return ResponseEntity.ok(roleService.listAllRoles());
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable Integer id){
-        ResponseEntity<User> response;
+    public ResponseEntity<Role> getRoleById(@PathVariable Integer id){
+        ResponseEntity<Role> response;
 
-        if (userService.getUserById(Long.valueOf(id))!=null){
-            response = ResponseEntity.ok(userService.getUserById(Long.valueOf(id))) ;
+        if (roleService.getRoleById(Long.valueOf(id))!=null){
+            response = ResponseEntity.ok(roleService.getRoleById(Long.valueOf(id))) ;
         }else
         {
             response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
@@ -42,10 +42,10 @@ public class UserController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<User> updateUser(@RequestBody User user){
-        ResponseEntity<User> response;
-        if (user.getIdUser() != null && userService.getUserById(user.getIdUser()) != null){
-            response = ResponseEntity.ok(userService.saveUser(user));
+    public ResponseEntity<Role> updateRole(@RequestBody Role role){
+        ResponseEntity<Role> response;
+        if (role.getIdRole() != null && roleService.getRoleById(role.getIdRole()) != null){
+            response = ResponseEntity.ok(roleService.saveRole(role));
         }else{
             response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
@@ -53,8 +53,8 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable Integer id){
-        userService.deleteUser(Long.valueOf(id));
+    public ResponseEntity<String> deleteRole(@PathVariable Integer id){
+        roleService.deleteRole(Long.valueOf(id));
         return ResponseEntity.ok().body("Deleted");
     }
 

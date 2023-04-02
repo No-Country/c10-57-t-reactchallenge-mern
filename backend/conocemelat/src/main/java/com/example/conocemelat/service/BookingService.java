@@ -1,32 +1,19 @@
 package com.example.conocemelat.service;
 
-import com.example.conocemelat.model.Product;
+import com.example.conocemelat.model.Booking;
 
 import java.util.Date;
 import java.util.List;
 
-public interface ProductService {
-    public List<Product> listAllProducts();
+public interface BookingService {
+    public List<Booking> listAllBookings();
 
-    public List<Product> listRandomProducts();
+    public Booking saveBooking(Booking booking);
 
-    public Product saveProduct(Product product);
+    public Booking getBookingById(Long id);
 
-    public Product getProductById(Long id);
+    public void deleteBooking(Long id);
 
-    public Product updateProduct(Product product);
-
-    public void deleteProduct(Long id);
-
-    public List<Product> findAllProductsByCategory(Long id);
-
-    public List<Product> findAllProductsByCity(Long id);
-
-   // public List<Product> findProductsByDate(Date checkIn, Date checkOut);
-
-    //public List<Product> findAllProductsByCityAndDate(Date checkIn, Date CheckOut, Long id);
-
-    //public List<Product> findAllProductsByproductAvailable(Boolean available);
-
+    public List<Booking> findBookingsByDate(Date checkIn, Date checkOut);
 
 }

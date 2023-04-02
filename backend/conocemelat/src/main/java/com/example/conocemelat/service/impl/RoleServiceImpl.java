@@ -1,42 +1,37 @@
 package com.example.conocemelat.service.impl;
 
-import com.example.conocemelat.model.User;
-import com.example.conocemelat.repository.UserRepository;
-import com.example.conocemelat.service.UserService;
+import com.example.conocemelat.model.Role;
+import com.example.conocemelat.repository.RoleRepository;
+import com.example.conocemelat.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class RoleServiceImpl implements RoleService {
 
     @Autowired
-    public UserRepository userRepository;
+    public RoleRepository roleRepository;
 
     @Override
-    public List<User> listAllUsers() {
-        return userRepository.findAll();
+    public List<Role> listAllRoles() {
+        return roleRepository.findAll();
     }
 
     @Override
-    public User saveUser(User user) {
-        return userRepository.save(user);
+    public Role saveRole(Role role) {
+        return roleRepository.save(role);
     }
 
     @Override
-    public User getUserById(Long id) {
-        return userRepository.findById(id).get();
+    public Role getRoleById(Long id) {
+        return roleRepository.findById(id).get();
     }
 
     @Override
-    public User updateUser(User user) {
-        return userRepository.save(user);
-    }
-
-    @Override
-    public void deleteUser(Long id) {
-        userRepository.deleteById(id);
+    public void deleteRole(Long id) {
+        roleRepository.deleteById(id);
     }
 
 }
