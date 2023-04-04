@@ -1,0 +1,63 @@
+.data-container{
+    background-color: white;
+    position: relative;
+    z-index: 10000;
+}
+
+.navbar-container{
+
+    height: 68px;
+}
+
+.navbar-link{
+    color: #ffffff;
+    font-family: SF Pro Display;
+    font-style:regular;
+    font-size: 16px;
+
+}
+.data__container-option{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+.data__container-logo{
+    display: flex;
+    justify-content: space-between;
+}
+.data__container-buttom{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.buttom-register{
+    padding: 10px 18px;
+    color: #2F80ED;
+    border: 2px solid #2F80ED;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.butoom-login{
+    background-color: #2F80ED;
+    color:#ffffff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-family: SF Pro Display;
+    font-style: medium;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 2%;
+}
+.menu{
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 0.6em 1.2em;
+    cursor: pointer;;
+}
+
+.menu:focus, menu:focus-visible {
+    border-color: #93edf1;
+}
