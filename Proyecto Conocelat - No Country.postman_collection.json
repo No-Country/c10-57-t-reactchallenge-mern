@@ -1,0 +1,660 @@
+{
+	"info": {
+		"_postman_id": "5dcea7a5-8fe4-465a-8c06-e9d661629b2c",
+		"name": "Proyecto Conocelat - No Country",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18554443"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Save Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"productTitle\": \"Parque Espejo de Agua\",\r\n        \"productDescription\": \"Parque nacional\",\r\n        \"productPrice\": 1050.2,\r\n        \"productAvailable\": 1,\r\n        \"city\": {\r\n            \"idCity\": 3\r\n        },\r\n        \"category\": {\r\n            \"idCategory\": 1\r\n        },\r\n        \"characteristics\": [\r\n            {\r\n                \"idCharacteristic\": 1\r\n            }\r\n        ]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/products/save",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list all product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/products/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/products/delete/7",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"delete",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get products by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products/get/7",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"get",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Save Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n     \"categoryTitle\": \"Diversiones acuáticas\",\r\n     \"categoryDescription\": \"Parques que cuentan con atracciones con agua, como piscinas, cascadas y zonas húmedas\",\r\n     \"categoryImage\": \"https://images.pexels.com/photos/61129/pexels-photo-61129.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/categories/save",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categories",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get category by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/categories/get/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categories",
+								"get",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list all Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/categories/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categories",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "City",
+			"item": [
+				{
+					"name": "Save cities",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"cityName\": \"Santa Marta\",\r\n    \"country\": \r\n        {\r\n            \"idCountry\": \"2\"\r\n        }   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cities/save",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar ciudades",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cities/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get cities by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cities/get/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities",
+								"get",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Country",
+			"item": [
+				{
+					"name": "Save Country",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n     \"countryName\": \"Perú\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/countries/save",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"countries",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get countries by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/countries/get/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"countries",
+								"get",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Image",
+			"item": [
+				{
+					"name": "list images",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/images/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"images",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"imageTitle\": \"Parque Verde Chile\",\r\n            \"imageUrl\": \"https://cdn.pixabay.com/photo/2017/10/18/11/18/park-2863734_1280.jpg\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/images/save",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"images",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Images by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/images/get/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"images",
+								"get",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Characteristic",
+			"item": [
+				{
+					"name": "Save Characteristic",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "        {\r\n            \"characteristicName\": \"Baños con ducha\",\r\n            \"characteristicImage\": \"https://cdn-icons-png.flaticon.com/512/102/102813.png?w=740&t=st=1680733861~exp=1680734461~hmac=9d152d464073932cea1301efa0ef7b62e45629dca85f8142799855145301eca7\",\r\n            \"characteristicDescription\": \"baños públicos con area para ducharse\"\r\n\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/characteristics/save",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characteristics",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list characteristic",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/characteristics/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characteristics",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get characteristics by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/characteristics/get/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characteristics",
+								"get",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "Save Booking",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n     \"user\":{\r\n            \"idUser\": 10,\r\n        \"role\": {\r\n            \"idRole\": 1,\r\n            \"roleName\": \"user\"\r\n        },\r\n        \"userName\": \"Francis\",\r\n        \"userLastName\": \"Perez\",\r\n        \"userEmail\": \"francis@gmail.com\",\r\n        \"userPassword\": \"clave126\"\r\n                },\r\n     \"product\":{\r\n         \r\n        \"idProduct\": 7,\r\n        \"productTitle\": \"Parque El Encanto\",\r\n        \"productDescription\": \"Este es un hermoso hotel inspirado en la famosa película de la familia Madrigal\",\r\n        \"productPrice\": 300.2,\r\n        \"productAvailable\": true,\r\n        \"city\": {\r\n            \"idCity\": 1,\r\n            \"cityName\": \"Medellín\",\r\n            \"country\": {\r\n                \"idCountry\": 2,\r\n                \"countryName\": \"Colombia\"\r\n            }\r\n        },\r\n        \"category\": {\r\n            \"idCategory\": 1,\r\n            \"categoryTitle\": \"Parques Naturales\",\r\n            \"categoryDescription\": \"Parques cuyo paisaje predominante es natural, con gran cantidad de vegetación y aire fresco\",\r\n            \"categoryImage\": \"https://steemitimages.com/640x0/https://steemitimages.com/DQmdETMqJm3QHfQPq77VCtxRyxRnvmJ9RaJCramugUpqZUc/WhatsApp%20Image%202018-01-21%20at%2011.33.04%20AM.jpeg\"\r\n        },\r\n        \"characteristics\": [\r\n            {\r\n                \"idCharacteristic\": 1,\r\n                \"characteristicName\": \"Rampas para personas con discapacidad\",\r\n                \"characteristicImage\": \"https://mariablender.com/wp-content/uploads/2020/09/Rampa-Antofagasta-2-768x494.jpg\",\r\n                \"characteristicDescription\": \"rampa multiuso\"\r\n            }\r\n        ]\r\n    \r\n     },\r\n     \"checkIn\": \"2023-12-28\",\r\n     \"checkOut\": \"2023-12-31\",\r\n     \"total\":3200.5\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/bookings/save",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookings",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list Booking",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/bookings/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookings",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "Save Role",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"roleName\":\"administrator\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/roles/save",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"roles",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list role",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/roles/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"roles",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get roles by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/roles/get/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"roles",
+								"get",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Save User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\": {\r\n        \"idRole\": 1\r\n    },\r\n    \"userName\": \"Jose\",\r\n    \"userLastName\": \"Armando\",\r\n    \"userEmail\":\"joseA@gmail.com\",\r\n    \"userPassword\": \"clave128\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users/save",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get users by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/get/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"get",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -76,18 +76,18 @@ public class ProductServiceImpl implements ProductService {
     }
 
     //@Override
-    //public List<Product> findAllProductsByproductAvailable(Bolean available) {
-       // return productRepository.findAllProductsByproductAvailable(available);
-   // }
+    //public List<Product> findAllProductsByproductAvailable(Boolean available) {
+    //   return productRepository.findAllProductsByproductAvailable(available);
+    //}
 
-   /* @Override
-    public List<Product> findProductsByDate(Date checkIn, Date checkOut){
-        return productRepository.findProductsByDate(checkIn, checkOut);
-    }*/
+   //@Override
+    //public List<Product> findProductsByDate(Date checkIn, Date checkOut){
+    //    return productRepository.findProductsByDate(checkIn, checkOut);
+    //}
 
-    /*@Override
-    public List<Product> findAllProductsByCityAndDate(Date checkIn, Date checkOut, Long id) {
-        return productRepository.findAllProductsByCityAndDate(checkIn, checkOut, id);
-    }*/
+    //@Override
+    //public List<Product> findAllProductsByCityAndDate(Date checkIn, Date checkOut, Long id) {
+      //  return productRepository.findAllProductsByCityAndDate(checkIn, checkOut, id);
+    //}
 
 }

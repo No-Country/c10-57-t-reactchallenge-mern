@@ -11,14 +11,14 @@ public class Country {
     private Long idCountry;
 
     @Column(name = "country_name", nullable = false, unique = true)
-    private String cityName;
+    private String countryName;
 
     public Country() {
     }
 
-    public Country(Long idCountry, String cityName) {
+    public Country(Long idCountry, String countryName) {
         this.idCountry = idCountry;
-        this.cityName = cityName;
+        this.countryName = countryName;
     }
 
     public Long getIdCountry() {
@@ -29,11 +29,11 @@ public class Country {
         this.idCountry = idCountry;
     }
 
-    public String getCityName() {
-        return cityName;
+    public String getCountryName() {
+        return countryName;
     }
 
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
     }
 }
