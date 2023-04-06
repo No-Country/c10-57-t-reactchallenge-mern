@@ -1,5 +1,8 @@
 .footer-container{
-    height: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
 }
 
 .footer-icon{
