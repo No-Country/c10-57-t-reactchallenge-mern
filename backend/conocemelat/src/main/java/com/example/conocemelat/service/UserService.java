@@ -11,6 +11,14 @@ public interface UserService {
 
     public User getUserById(Long id);
 
+    public User updateUser(User user);
+
     public void deleteUser(Long id);
+
+    public  User getRole(Long id);
+
+
+
+
 
 }

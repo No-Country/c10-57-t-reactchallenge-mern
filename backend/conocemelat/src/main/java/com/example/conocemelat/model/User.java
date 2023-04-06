@@ -15,45 +15,41 @@ public class User implements Serializable {
     @Column(name = "id_user")
     private Long idUser;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_role")
     private Role role;
 
-    @Column(name = "user_name", nullable = false, unique = true)
+    @Column(name = "user_name", nullable = false)
     private String userName;
 
-    @Column(name = "user_last_name", nullable = false, unique = true)
+    @Column(name = "user_last_name", nullable = false)
     private String userLastName;
 
     @Column(name = "user_email", nullable = false, unique = true)
     private String userEmail;
 
-    @Column(name = "user_password", nullable = false, unique = true)
+    @Column(name = "user_password", nullable = false)
     private String userPassword;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Booking> bookings =new HashSet<>();
 
     public User() {
     }
 
-    public User(Long idUser, Role role, String userName, String userLastName, String userEmail, String userPassword, Set<Booking> bookings) {
+    public User(Long idUser, Role role, String userName, String userLastName, String userEmail, String userPassword) {
         this.idUser = idUser;
         this.role = role;
         this.userName = userName;
         this.userLastName = userLastName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
-        this.bookings = bookings;
     }
 
-    public User(Role role, String userName, String userLastName, String userEmail, String userPassword, Set<Booking> bookings) {
+    public User(Role role, String userName, String userLastName, String userEmail, String userPassword) {
         this.role = role;
         this.userName = userName;
         this.userLastName = userLastName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
-        this.bookings = bookings;
     }
 
     public Long getIdUser() {
@@ -103,13 +99,4 @@ public class User implements Serializable {
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
     }
-
-    public Set<Booking> getBookings() {
-        return bookings;
-    }
-
-    public void setBookings(Set<Booking> bookings) {
-        this.bookings = bookings;
-    }
-
 }
