@@ -16,8 +16,4 @@ public interface BookingService {
 
     public List<Booking> findBookingsByDate(Date checkIn, Date checkOut);
 
-    public List<Booking> findAllBookingsByProduct(Long id);
-
-    public List<Booking> findAllBookingsByUser(Long id);
-
 }

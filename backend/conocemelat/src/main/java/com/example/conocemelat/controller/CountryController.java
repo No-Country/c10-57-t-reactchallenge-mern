@@ -7,10 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.security.PermitAll;
 import java.util.List;
 
-//@CrossOrigin
+@CrossOrigin
 @RestController
 @RequestMapping("/countries")
 public class CountryController {
@@ -19,8 +18,6 @@ public class CountryController {
     private CountryService countryService;
 
     @PostMapping("/save")
-    //no tenia el permitAll
-    @PermitAll
     public ResponseEntity<Country> saveCountry(@RequestBody Country country){
         return ResponseEntity.ok(countryService.saveCountry(country));
     }

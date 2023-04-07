@@ -19,10 +19,10 @@ public class User implements Serializable {
     @JoinColumn(name = "id_role")
     private Role role;
 
-    @Column(name = "user_name", nullable = false, unique = true)
+    @Column(name = "user_name", nullable = false)
     private String userName;
 
-    @Column(name = "user_last_name", nullable = false, unique = true)
+    @Column(name = "user_last_name", nullable = false)
     private String userLastName;
 
     @Column(name = "user_email", nullable = false, unique = true)
@@ -35,7 +35,7 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(Long idUser, Role role, String userName, String userLastName, String userEmail, String userPassword, Set<Booking> bookings) {
+    public User(Long idUser, Role role, String userName, String userLastName, String userEmail, String userPassword) {
         this.idUser = idUser;
         this.role = role;
         this.userName = userName;
@@ -44,7 +44,7 @@ public class User implements Serializable {
         this.userPassword = userPassword;
     }
 
-    public User(Role role, String userName, String userLastName, String userEmail, String userPassword, Set<Booking> bookings) {
+    public User(Role role, String userName, String userLastName, String userEmail, String userPassword) {
         this.role = role;
         this.userName = userName;
         this.userLastName = userLastName;

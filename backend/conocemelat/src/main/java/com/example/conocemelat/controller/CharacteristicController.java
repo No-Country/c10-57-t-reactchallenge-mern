@@ -7,10 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.security.PermitAll;
 import java.util.List;
 
-//@CrossOrigin
+@CrossOrigin
 @RestController
 @RequestMapping("/characteristics")
 public class CharacteristicController {
@@ -19,8 +18,6 @@ public class CharacteristicController {
     private CharacteristicService characteristicService;
 
     @PostMapping("/save")
-    //no tenia el permitAll
-    @PermitAll
     public ResponseEntity<Characteristic> saveCharacteristic(@RequestBody Characteristic characteristic){
         return ResponseEntity.ok(characteristicService.saveCharacteristic(characteristic));
     }

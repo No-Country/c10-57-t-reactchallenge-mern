@@ -29,8 +29,6 @@ public class ProductServiceImpl implements ProductService {
         List<Product> givenList = productRepository.findAll();
         int numberOfElements = 8;
 
-        //el numero de elementos puede ser cualquiera
-
 
         List<Product> randomProducts = new ArrayList<>();
 
@@ -75,19 +73,19 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findAllProductsByCity(id);
     }
 
-    @Override
-    public List<Product> findProductsByDate(Date checkIn, Date checkOut) {
-        return productRepository.findProductsByDate(checkIn, checkOut);
-    }
-
-    @Override
-    public List<Product> findAllProductsByCityAndDate(Date checkIn, Date checkOut, Long id) {
-        return productRepository.findAllProductsByCityAndDate(checkIn, checkOut, id);
-    }
-
     //@Override
     //public List<Product> findAllProductsByproductAvailable(Boolean available) {
-      //  return productRepository.findAllProductsByproductAvailable(available);
+    //   return productRepository.findAllProductsByproductAvailable(available);
+    //}
+
+   //@Override
+    //public List<Product> findProductsByDate(Date checkIn, Date checkOut){
+    //    return productRepository.findProductsByDate(checkIn, checkOut);
+    //}
+
+    //@Override
+    //public List<Product> findAllProductsByCityAndDate(Date checkIn, Date checkOut, Long id) {
+      //  return productRepository.findAllProductsByCityAndDate(checkIn, checkOut, id);
     //}
 
 }
