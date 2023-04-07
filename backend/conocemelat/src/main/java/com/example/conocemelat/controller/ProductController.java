@@ -7,12 +7,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.PermitAll;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-@CrossOrigin
+//@CrossOrigin
 @RestController
 @RequestMapping("/products")
 public class ProductController {
@@ -21,6 +22,8 @@ public class ProductController {
     private ProductService productService;
 
     @PostMapping("/save")
+    //no tenia el permitAll
+    @PermitAll
     public ResponseEntity<Product> saveProduct(@RequestBody Product product){
         return ResponseEntity.ok(productService.saveProduct(product));
     }

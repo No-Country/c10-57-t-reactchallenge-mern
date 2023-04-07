@@ -7,12 +7,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.PermitAll;
 import java.util.List;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@CrossOrigin
+//@CrossOrigin
 @RestController
 @RequestMapping("/bookings")
 public class BookingController {
@@ -21,6 +22,8 @@ public class BookingController {
     private BookingService bookingService;
 
     @PostMapping("/save")
+    //no tenia el permitAll
+    @PermitAll
     public ResponseEntity<Booking> saveBooking(@RequestBody Booking booking){
         return ResponseEntity.ok(bookingService.saveBooking(booking));
     }
@@ -61,11 +64,25 @@ public class BookingController {
     }
 
     @GetMapping("/find")
+    //no tenia el permitAll
+    @PermitAll
     public ResponseEntity<List<Booking>> findBookingsByDate(@RequestParam String checkIn, @RequestParam String checkOut) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date checkInDate = formatter.parse(checkIn);
         Date checkOutDate = formatter.parse(checkOut);
         return ResponseEntity.ok(bookingService.findBookingsByDate(checkInDate, checkOutDate));
+    }
+
+    @GetMapping("/product/{id}")
+   @PermitAll
+    public ResponseEntity<List<Booking>> listAllBookingsByProduct(@PathVariable Long id){
+        return ResponseEntity.ok(bookingService.findAllBookingsByProduct(id));
+    }
+
+    @GetMapping("/user/{id}")
+    @PermitAll
+    public ResponseEntity<List<Booking>> listAllBookingsByUser(@PathVariable Long id){
+        return ResponseEntity.ok(bookingService.findAllBookingsByUser(id));
     }
 
 }

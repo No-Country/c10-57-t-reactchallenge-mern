@@ -7,9 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.PermitAll;
 import java.util.List;
 
-@CrossOrigin
+//@CrossOrigin
 @RestController
 @RequestMapping("/cities")
 public class CityController {
@@ -18,6 +19,8 @@ public class CityController {
     private CityService cityService;
 
     @PostMapping("/save")
+    //no tenia el permitAll
+    @PermitAll
     public ResponseEntity<City> saveCity(@RequestBody City city){
         return ResponseEntity.ok(cityService.saveCity(city));
     }

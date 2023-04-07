@@ -7,9 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.PermitAll;
 import java.util.List;
 
-@CrossOrigin
+//@CrossOrigin
 @RestController
 @RequestMapping("/categories")
 public class CategoryController {
@@ -17,6 +18,8 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @PostMapping("/save")
+    //no tenia el permitAll
+    @PermitAll
     public ResponseEntity<Category> saveCategory(@RequestBody Category category){
         return ResponseEntity.ok(categoryService.saveCategory(category));
     }

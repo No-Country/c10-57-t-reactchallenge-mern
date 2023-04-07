@@ -7,9 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.PermitAll;
 import java.util.List;
 
-@CrossOrigin
+//@CrossOrigin
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -18,6 +19,8 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/save")
+    //no tenia el permitAll
+    @PermitAll
     public ResponseEntity<User> saveUser(@RequestBody User user){
         return ResponseEntity.ok(userService.saveUser(user));
     }
