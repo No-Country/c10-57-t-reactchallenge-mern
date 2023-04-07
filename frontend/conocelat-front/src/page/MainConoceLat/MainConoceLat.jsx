@@ -3,7 +3,7 @@ import './MainConoceLat.css'
 import { UserContext } from '../../context/userContext';
 // import { UserContext } from '../../context/userContext';
 import banner from "../../assets/bannerStart.svg"
-
+import Grilla from "./../../components/Home/Grilla";
 export const MainConoceLat = () => {
   const {register,setRegister,loginUser,setLoginUser,userExists,setUserExists} = useContext(UserContext);
 
@@ -85,6 +85,7 @@ export const MainConoceLat = () => {
                 <button className='buttom__search'>Buscar</button>
               </div>
           </div>
+          <Grilla/>
       </div>
 
       <div style={{ display: register ? "block" : "none"}} className='form-container'> 
