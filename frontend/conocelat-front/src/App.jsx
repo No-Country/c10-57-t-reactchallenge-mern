@@ -5,7 +5,8 @@ import { MainConoceLat } from './page/MainConoceLat/MainConoceLat';
 import { Layout } from "./layout/Layout";
 import { LoginCL } from "./page/LoginCL/LoginCL";
 import { RegisterCL } from "./page/RegisterCL/RegisterCL";
-import { UserProvider } from "./context/userProvider";
+import { UserProvider } from "./context/UserProvider";
+import { HomeCL } from "./page/HomeCL/HomeCL";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <UserProvider>
         <Routes>
             <Route path="/" element={<Layout/>}>
-              <Route index element={<MainConoceLat/>}/>
+              <Route index element={<HomeCL/>}/>
               <Route path="login" element={<LoginCL/>}/>
               <Route path="Register" element={<RegisterCL/>}/>
             </Route>

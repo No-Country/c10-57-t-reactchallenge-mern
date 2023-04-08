@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react'
-import './MainConoceLat.css'
+import './HomeCL.css'
 import { UserContext } from '../../context/userContext';
 // import { UserContext } from '../../context/userContext';
 import banner from "../../assets/bannerStart.svg"
 
-export const MainConoceLat = () => {
+export const HomeCL = () => {
   const {register,setRegister,loginUser,setLoginUser,userExists,setUserExists} = useContext(UserContext);
 
   const [email,setEmail]= useState('');
@@ -85,6 +85,24 @@ export const MainConoceLat = () => {
                 <button className='buttom__search'>Buscar</button>
               </div>
           </div>
+        <div>
+          Hola mundo
+        </div>
+        <div>
+          Hola mundo
+        </div>
+        <div>
+          Hola mundo
+        </div>
+        <div>
+          Hola mundo
+        </div>
+        <div>
+          Hola mundo
+        </div>
+        <div>
+          Hola mundo
+        </div>
       </div>
 
       <div style={{ display: register ? "block" : "none"}} className='form-container'> 
