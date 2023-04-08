@@ -154,7 +154,18 @@
     height: 85%;
     padding: 2em;
 }
-
+.titulo-home{
+    font-size:larger;
+    font-weight: 800;
+    margin: 3%;
+}
+.lema-home{
+    font-size:larger;
+    font-weight: 800;
+    margin: 3%;
+    text-align: center;
+    color: #2F80ED;
+}
 @media screen and (min-width:280px) and (max-width:480px) {
     .start__container-data{
         background-color: white;
@@ -292,4 +303,5 @@
         height: 100%;
         object-fit: cover;
     }
+   
 }

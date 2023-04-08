@@ -3,6 +3,7 @@ import './HomeCL.css'
 import { UserContext } from '../../context/userContext';
 // import { UserContext } from '../../context/userContext';
 import banner from "../../assets/bannerStart.svg"
+import Grilla from '../../components/Home/Grilla';
 
 export const HomeCL = () => {
   const {register,setRegister,loginUser,setLoginUser,userExists,setUserExists} = useContext(UserContext);
@@ -85,24 +86,10 @@ export const HomeCL = () => {
                 <button className='buttom__search'>Buscar</button>
               </div>
           </div>
-        <div>
-          Hola mundo
-        </div>
-        <div>
-          Hola mundo
-        </div>
-        <div>
-          Hola mundo
-        </div>
-        <div>
-          Hola mundo
-        </div>
-        <div>
-          Hola mundo
-        </div>
-        <div>
-          Hola mundo
-        </div>
+
+        <h3 className='titulo-home'>Nuestros recomendados</h3> 
+        <Grilla/> 
+        <h2 className='lema-home'>Latinoamérica, un mundo por descubrir</h2>
       </div>
 
       <div style={{ display: register ? "block" : "none"}} className='form-container'> 
