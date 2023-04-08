@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-//@CrossOrigin
+@CrossOrigin
 @RestController
 @RequestMapping("/products")
 public class ProductController {
@@ -77,6 +77,32 @@ public class ProductController {
     @GetMapping("/city/{id}")
     public ResponseEntity<List<Product>> listAllProductsByCity(@PathVariable Long id){
         return ResponseEntity.ok(productService.findAllProductsByCity(id));
+    }
+
+    @GetMapping("/search-date")
+    public ResponseEntity<List<Product>> findProductsByDate(@RequestParam(value = "date_in", required = false) String checkInDay,
+                                                            @RequestParam(value = "date_out", required = false)String checkOutDay) throws ParseException {
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+        Date dateIn = simpleDateFormat.parse(checkInDay);
+        Date dateOut = simpleDateFormat.parse(checkOutDay);
+
+        return ResponseEntity.ok(productService.findProductsByDate(dateIn, dateOut));
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Product>> searchByParams(@RequestParam (value = "date_in", required = false) String checkInDay,
+                                                        @RequestParam (value = "date_out", required = false) String checkOutDay,
+                                                        @RequestParam (value = "id_city", required = false) Long idCity) throws ParseException {
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+        Date dateIn = simpleDateFormat.parse(checkInDay);
+        Date dateOut = simpleDateFormat.parse(checkOutDay);
+
+        return ResponseEntity.ok(productService.findAllProductsByCityAndDate(dateIn, dateOut, idCity));
+
     }
 
 

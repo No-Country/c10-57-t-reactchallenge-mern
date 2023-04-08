@@ -1,8 +1,6 @@
-//package com.example.conocemelat.service.impl;
+package com.example.conocemelat.service.impl;
 
-
-
-/*import com.example.conocemelat.model.UserAuthorization;
+import com.example.conocemelat.model.UserAuthorization;
 import com.example.conocemelat.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,4 +20,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         com.example.conocemelat.model.User user = userRepository.findByUserEmail(userEmail);
         return UserAuthorization.build(user);
     }
-}*/
+}

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.security.PermitAll;
 import java.util.List;
 
-//@CrossOrigin
+@CrossOrigin
 @RestController
 @RequestMapping("/characteristics")
 public class CharacteristicController {

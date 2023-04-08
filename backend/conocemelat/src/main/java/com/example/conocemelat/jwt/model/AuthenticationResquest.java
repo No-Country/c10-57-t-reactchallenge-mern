@@ -1,6 +1,6 @@
 package com.example.conocemelat.jwt.model;
 
-/*public class AuthenticationResquest {
+public class AuthenticationResquest {
 
     private String email;
     private String password;
@@ -28,4 +28,4 @@ package com.example.conocemelat.jwt.model;
     public void setPassword(String password) {
         this.password = password;
     }
-}*/
+}

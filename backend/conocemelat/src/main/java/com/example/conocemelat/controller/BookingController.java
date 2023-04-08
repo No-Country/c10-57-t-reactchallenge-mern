@@ -13,7 +13,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-//@CrossOrigin
+@CrossOrigin
 @RestController
 @RequestMapping("/bookings")
 public class BookingController {
@@ -29,11 +29,13 @@ public class BookingController {
     }
 
     @GetMapping("/list")
+    @PermitAll
     public ResponseEntity<List<Booking>> listAllBookings(){
         return ResponseEntity.ok(bookingService.listAllBookings());
     }
 
     @GetMapping("/get/{id}")
+    @PermitAll
     public ResponseEntity<Booking> getBookingById(@PathVariable Integer id){
         ResponseEntity<Booking> response;
 

@@ -1,6 +1,6 @@
 package com.example.conocemelat.jwt.model;
 
-/*public class AutheticationResponse {
+public class AutheticationResponse {
 
     private final String jwt;
 
@@ -11,4 +11,4 @@ package com.example.conocemelat.jwt.model;
     public String getJwt() {
         return jwt;
     }
-}*/
+}

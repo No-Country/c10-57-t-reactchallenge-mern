@@ -1,6 +1,6 @@
 package com.example.conocemelat.jwt.security;
 
-/*import com.example.conocemelat.service.impl.UserDetailsServiceImpl;
+import com.example.conocemelat.service.impl.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -29,26 +29,32 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.Arrays;
 
-//@Configuration
-//@EnableWebSecurity
-//@EnableGlobalMethodSecurity(
-        //prePostEnabled=false,
-        //securedEnabled = false,
-        //jsr250Enabled = true
-//)
+@Configuration
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(
+        prePostEnabled=false,
+        securedEnabled = false,
+        jsr250Enabled = true
+)
+//esto va
 //@RequiredArgsConstructor
 
 public class SecurityConfiguration {
-
-
+    //no iba
+    @Autowired
+    //no iba
     private UserDetailsServiceImpl myUserDetailsService;
-
-
+    //no iba
+    @Autowired
+    //no iba
     private JwtResquestFilter jwtRequestFilter;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        //return new BCryptPasswordEncoder();
+        //agregado, no iba
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        return bCryptPasswordEncoder;
     }
 
     @Bean
@@ -56,12 +62,14 @@ public class SecurityConfiguration {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable()
-                //.exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+        /*http.cors().and().csrf().disable()
+                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeRequests()
+                .authorizeRequests()*/
+        http.csrf().disable().authorizeRequests()
                 .antMatchers("authenticate").permitAll()
                 .antMatchers("/categories/**").permitAll()
                 .antMatchers("/bookings/**").permitAll()
@@ -72,27 +80,51 @@ public class SecurityConfiguration {
                 .antMatchers("/products/**").permitAll()
                 .antMatchers("/roles/**").permitAll()
                 .antMatchers("/users/**").permitAll()
+                .antMatchers("/product-characteristics/**").permitAll()
                 //.antMatchers(UrlMapping.AUTH + UrlMapping.LOGIN).permitAll()
                 //.antMatchers(UrlMapping.VALIDATE_JWT).permitAll()
                 //.antMatchers("/api/test/**").permitAll()
-                .anyRequest().authenticated();
-
+                .anyRequest().authenticated()
+                .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
 
-    @Bean
+
+    /*@Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                         .allowedMethods("*");
+                //registry.addMapping("/**").allowedOrigins("*").allowedMethods("GET", "POST","PUT", "DELETE");
             }
         };
+    }*/
+
+    //no iba
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowedOriginPatterns(Arrays.asList("*"));
+        //config.setAllowedOrigins(Arrays.asList("http://localhost:4200", "*"));
+        config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowCredentials(true);
+        config.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
+        UrlBasedCorsConfigurationSource cors = new UrlBasedCorsConfigurationSource();
+        cors.registerCorsConfiguration("/**", config);
+        return cors;
     }
 
+    @Bean
+    public FilterRegistrationBean<CorsFilter> corsFilter() {
+        FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<CorsFilter>(new CorsFilter(corsConfigurationSource()));
+        bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
+        return bean;
+    }
+    //no iba
 
-    }*/
+    }
 

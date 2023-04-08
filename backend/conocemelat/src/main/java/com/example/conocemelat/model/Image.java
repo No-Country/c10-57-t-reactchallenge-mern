@@ -24,7 +24,7 @@ public class Image {
     public Image() {
     }
 
-    public Image(Long idImage, String imageTitle, String imageUrl, Product product) {
+   public Image(Long idImage, String imageTitle, String imageUrl, Product product) {
         this.idImage = idImage;
         this.imageTitle = imageTitle;
         this.imageUrl = imageUrl;

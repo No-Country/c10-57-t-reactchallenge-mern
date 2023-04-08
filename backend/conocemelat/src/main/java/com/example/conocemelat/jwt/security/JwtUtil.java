@@ -1,6 +1,6 @@
 package com.example.conocemelat.jwt.security;
 
-//import com.example.conocemelat.model.UserAuthorization;
+import com.example.conocemelat.model.UserAuthorization;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
- /*@Component
+ @Component
 public class JwtUtil {
    private String SECRET_KEY = "secret";
 
@@ -62,4 +62,4 @@ public class JwtUtil {
     private boolean isTokenExpired(String token) {
         return extractExpiration(token).before(new Date());
     }
-}*/
+}

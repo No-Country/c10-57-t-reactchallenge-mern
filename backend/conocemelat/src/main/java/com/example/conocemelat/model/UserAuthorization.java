@@ -1,15 +1,15 @@
 package com.example.conocemelat.model;
 
-/*import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;*/
+import java.util.List;
 
-/*public class UserAuthorization implements UserDetails {
+public class UserAuthorization implements UserDetails {
     private String firstName;
     private String userName;
     private String lastName;
@@ -107,4 +107,4 @@ import java.util.List;*/
         authorities.add(authority);
         return new UserAuthorization(user.getUserName(), user.getUserPassword(), user.getUserEmail(), user.getIdUser(), user.getUserName(), user.getUserLastName(),  authorities);
     }
-}*/
+}
