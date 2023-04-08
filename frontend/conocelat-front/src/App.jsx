@@ -1,7 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
 import { Footer } from './layout/Footer/Footer';
-import { MainConoceLat } from './page/MainConoceLat/MainConoceLat';
 import { Layout } from "./layout/Layout";
 import { LoginCL } from "./page/LoginCL/LoginCL";
 import { RegisterCL } from "./page/RegisterCL/RegisterCL";
