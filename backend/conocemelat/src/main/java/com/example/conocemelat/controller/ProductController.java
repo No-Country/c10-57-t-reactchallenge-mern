@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.PermitAll;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,6 +22,8 @@ public class ProductController {
     private ProductService productService;
 
     @PostMapping("/save")
+    //no tenia el permitAll
+    @PermitAll
     public ResponseEntity<Product> saveProduct(@RequestBody Product product){
         return ResponseEntity.ok(productService.saveProduct(product));
     }
@@ -74,6 +77,32 @@ public class ProductController {
     @GetMapping("/city/{id}")
     public ResponseEntity<List<Product>> listAllProductsByCity(@PathVariable Long id){
         return ResponseEntity.ok(productService.findAllProductsByCity(id));
+    }
+
+    @GetMapping("/search-date")
+    public ResponseEntity<List<Product>> findProductsByDate(@RequestParam(value = "date_in", required = false) String checkInDay,
+                                                            @RequestParam(value = "date_out", required = false)String checkOutDay) throws ParseException {
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+        Date dateIn = simpleDateFormat.parse(checkInDay);
+        Date dateOut = simpleDateFormat.parse(checkOutDay);
+
+        return ResponseEntity.ok(productService.findProductsByDate(dateIn, dateOut));
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Product>> searchByParams(@RequestParam (value = "date_in", required = false) String checkInDay,
+                                                        @RequestParam (value = "date_out", required = false) String checkOutDay,
+                                                        @RequestParam (value = "id_city", required = false) Long idCity) throws ParseException {
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+        Date dateIn = simpleDateFormat.parse(checkInDay);
+        Date dateOut = simpleDateFormat.parse(checkOutDay);
+
+        return ResponseEntity.ok(productService.findAllProductsByCityAndDate(dateIn, dateOut, idCity));
+
     }
 
 

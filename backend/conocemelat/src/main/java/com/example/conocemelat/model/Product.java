@@ -39,14 +39,22 @@ public class Product {
     @JoinTable(name = "product_has_characteristic", joinColumns = @JoinColumn(name = "id_product"), inverseJoinColumns = @JoinColumn(name = "id_characteristic"))
     private List<Characteristic> characteristics;
 
+
+    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
     @JsonIgnore
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Image> imagesProduct;
+    //private List<Image> imagesProduct;
+    private Set<Image> imagesProduct =new HashSet<Image>();
+
+    /*@OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="id_product")
+    private List<Image> imagesProduct;*/
+
+
 
     public Product() {
     }
 
-    public Product(Long idProduct, String productTitle, String productDescription, Double productPrice, Boolean productAvailable, City city, Category category, List<Characteristic> characteristics, List<Image> imagesProduct) {
+    public Product(Long idProduct, String productTitle, String productDescription, Double productPrice, Boolean productAvailable, City city, Category category, List<Characteristic> characteristics, Set<Image> imagesProduct) {
         this.idProduct = idProduct;
         this.productTitle = productTitle;
         this.productDescription = productDescription;
@@ -58,7 +66,7 @@ public class Product {
         this.imagesProduct = imagesProduct;
     }
 
-    public Product(String productTitle, String productDescription, Double productPrice, Boolean productAvailable, City city, Category category, List<Characteristic> characteristics, List<Image> imagesProduct) {
+    public Product(String productTitle, String productDescription, Double productPrice, Boolean productAvailable, City city, Category category, List<Characteristic> characteristics, Set<Image> imagesProduct) {
         this.productTitle = productTitle;
         this.productDescription = productDescription;
         this.productPrice = productPrice;
@@ -67,16 +75,6 @@ public class Product {
         this.category = category;
         this.characteristics = characteristics;
         this.imagesProduct = imagesProduct;
-    }
-
-    public Product(String productTitle, String productDescription, Double productPrice, Boolean productAvailable, City city, Category category, List<Characteristic> characteristics) {
-        this.productTitle = productTitle;
-        this.productDescription = productDescription;
-        this.productPrice = productPrice;
-        this.productAvailable = productAvailable;
-        this.city = city;
-        this.category = category;
-        this.characteristics = characteristics;
     }
 
     public Long getIdProduct() {
@@ -143,11 +141,11 @@ public class Product {
         this.characteristics = characteristics;
     }
 
-    public List<Image> getImagesProduct() {
+    public Set<Image> getImagesProduct() {
         return imagesProduct;
     }
 
-    public void setImagesProduct(List<Image> imagesProduct) {
+    public void setImagesProduct(Set<Image> imagesProduct) {
         this.imagesProduct = imagesProduct;
     }
 }

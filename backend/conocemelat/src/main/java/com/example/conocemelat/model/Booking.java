@@ -22,13 +22,13 @@ public class Booking implements Serializable {
     @JoinColumn(name = "id_product")
     private Product product;
 
-    @Column(name = "check_in", nullable = false, unique = true)
+    @Column(name = "check_in", nullable = false, unique = false)
     private Date checkIn;
 
-    @Column(name = "check_out", nullable = false, unique = true)
+    @Column(name = "check_out", nullable = false, unique = false)
     private Date checkOut;
 
-    @Column(name = "total", nullable = false, unique = true)
+    @Column(name = "total", nullable = false, unique = false)
     private Double total;
 
     public Booking() {
