@@ -10,10 +10,10 @@ public class Image {
     @Column(name = "id_image")
     private Long idImage;
 
-    @Column(name= "image_title", nullable = false, unique = true)
+    @Column(name= "image_title", nullable = false, unique = false)
     private String imageTitle;
 
-    @Column(name = "image_url", nullable = false, unique = true)
+    @Column(name = "image_url", nullable = false, unique = false)
     private String imageUrl;
 
     @ManyToOne(fetch = FetchType.EAGER)
