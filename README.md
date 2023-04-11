@@ -14,10 +14,15 @@ Proporcionar una plataforma que brinde una experiencia de usuario atractiva y fa
 ## Integrantes del equipo:
 
 Juan Gil -> TL
+
 Dolores Alemán @dolores91 -> PM y FRONTEND
+
 Francis Daniela @FrancisM16 -> FRONTEND
+
 Jose Armando Cruz @ccama22 -> FRONTEND
+
 Brayan Rodallega @brayanrodallega -> BACKEND 
+
 Maria Fernanda Garcia @mafegarciap > BACKEND 
 
 ## Tecnologías utilizadas:
@@ -27,29 +32,39 @@ Servicios/herramientas empleadas a la hora de realizar el desarrollo
 Gestión del proyecto:
 
 Slack
+
 Google Meet
+
 Board de GitHub
 
 Desarrollo del Proyecto:
 
 IDEs: Visual Studio Code e Intellij IDEA.
+
 Sistemas de control de versiones: Git-Hub.
 
 Tecnologías utilizadas para el desarrollo del sitio:
 
 Frontend:
+
 React
+
 Taiwind
 
 Backend:
+
 java
+
 Spring boot
+
 Maven
 
 Base de datos:
+
 MySQL
 
 Testing:
+
 Postman
 
 
