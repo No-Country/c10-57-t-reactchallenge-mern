@@ -26,11 +26,13 @@ public class UserController {
     }
 
     @GetMapping("/list")
+    @PermitAll
     public ResponseEntity<List<User>> listAllPUsers(){
         return ResponseEntity.ok(userService.listAllUsers());
     }
 
     @GetMapping("/get/{id}")
+    @PermitAll
     public ResponseEntity<User> getUserById(@PathVariable Integer id){
         ResponseEntity<User> response;
 
@@ -45,6 +47,7 @@ public class UserController {
     }
 
     @PutMapping("/update")
+    @PermitAll
     public ResponseEntity<User> updateUser(@RequestBody User user){
         ResponseEntity<User> response;
         if (user.getIdUser() != null && userService.getUserById(user.getIdUser()) != null){
@@ -56,6 +59,7 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{id}")
+    @PermitAll
     public ResponseEntity<String> deleteUser(@PathVariable Integer id){
         userService.deleteUser(Long.valueOf(id));
         return ResponseEntity.ok().body("Deleted");

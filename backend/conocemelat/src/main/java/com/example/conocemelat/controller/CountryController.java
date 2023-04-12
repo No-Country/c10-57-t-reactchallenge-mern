@@ -26,11 +26,13 @@ public class CountryController {
     }
 
     @GetMapping("/list")
+    @PermitAll
     public ResponseEntity<List<Country>> listAllCountries(){
         return ResponseEntity.ok(countryService.listAllCountries());
     }
 
     @GetMapping("/get/{id}")
+    @PermitAll
     public ResponseEntity<Country> getCountryById(@PathVariable Integer id){
         ResponseEntity<Country> response;
 

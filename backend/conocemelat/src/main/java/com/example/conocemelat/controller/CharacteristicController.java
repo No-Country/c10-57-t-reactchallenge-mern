@@ -26,11 +26,13 @@ public class CharacteristicController {
     }
 
     @GetMapping("/list")
+    @PermitAll
     public ResponseEntity<List<Characteristic>> listAllCharacteristic(){
         return ResponseEntity.ok(characteristicService.listAllCharacteristic());
     }
 
     @GetMapping("/get/{id}")
+    @PermitAll
     public ResponseEntity<Characteristic> getCharacteristicById(@PathVariable Integer id){
         ResponseEntity<Characteristic> response;
 

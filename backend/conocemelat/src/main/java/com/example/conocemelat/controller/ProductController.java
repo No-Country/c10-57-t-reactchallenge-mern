@@ -3,6 +3,7 @@ package com.example.conocemelat.controller;
 import com.example.conocemelat.model.Product;
 import com.example.conocemelat.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,23 +23,25 @@ public class ProductController {
     private ProductService productService;
 
     @PostMapping("/save")
-    //no tenia el permitAll
     @PermitAll
     public ResponseEntity<Product> saveProduct(@RequestBody Product product){
         return ResponseEntity.ok(productService.saveProduct(product));
     }
 
     @GetMapping("/list")
+    @PermitAll
     public ResponseEntity<List<Product>> listAllProducts(){
         return ResponseEntity.ok(productService.listAllProducts());
     }
 
     @GetMapping("/random-list")
+    @PermitAll
     public ResponseEntity<List<Product>> listRandomProducts(){
         return ResponseEntity.ok(productService.listRandomProducts());
     }
 
     @GetMapping("/get/{id}")
+    @PermitAll
     public ResponseEntity<Product> getProductById(@PathVariable Integer id){
         ResponseEntity<Product> response;
 
@@ -53,6 +56,7 @@ public class ProductController {
     }
 
     @PutMapping("/update")
+    @PermitAll
     public ResponseEntity<Product> updateProduct(@RequestBody Product product){
         ResponseEntity<Product> response;
         if (product.getIdProduct() != null && productService.getProductById(product.getIdProduct()) != null){
@@ -64,22 +68,26 @@ public class ProductController {
     }
 
     @DeleteMapping("/delete/{id}")
+    @PermitAll
     public ResponseEntity<String> deleteProduct(@PathVariable Integer id){
         productService.deleteProduct(Long.valueOf(id));
         return ResponseEntity.ok().body("Deleted");
     }
 
     @GetMapping("/category/{id}")
+    @PermitAll
     public ResponseEntity<List<Product>> listAllProductsByCategory(@PathVariable Long id){
         return ResponseEntity.ok(productService.findAllProductsByCategory(id));
     }
 
     @GetMapping("/city/{id}")
+    @PermitAll
     public ResponseEntity<List<Product>> listAllProductsByCity(@PathVariable Long id){
         return ResponseEntity.ok(productService.findAllProductsByCity(id));
     }
 
     @GetMapping("/search-date")
+    @PermitAll
     public ResponseEntity<List<Product>> findProductsByDate(@RequestParam(value = "date_in", required = false) String checkInDay,
                                                             @RequestParam(value = "date_out", required = false)String checkOutDay) throws ParseException {
         String pattern = "yyyy-MM-dd";
@@ -92,6 +100,7 @@ public class ProductController {
     }
 
     @GetMapping("/search")
+    @PermitAll
     public ResponseEntity<List<Product>> searchByParams(@RequestParam (value = "date_in", required = false) String checkInDay,
                                                         @RequestParam (value = "date_out", required = false) String checkOutDay,
                                                         @RequestParam (value = "id_city", required = false) Long idCity) throws ParseException {
