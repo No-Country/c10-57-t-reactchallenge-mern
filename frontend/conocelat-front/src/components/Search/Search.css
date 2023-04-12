@@ -1,0 +1,11 @@
+.ant-picker-input-active input::placeholder,
+.ant-picker-input input::placeholder {
+  color: #808080 !important;
+  font-size: 16px;
+}
+.ant-picker-range:hover {
+  border-color: transparent;
+}
+.ant-picker-focused {
+  border-color: #000 !important;
+}
