@@ -25,11 +25,13 @@ public class CategoryController {
     }
 
     @GetMapping("/list")
+    @PermitAll
     public ResponseEntity<List<Category>> listAllCategories(){
         return ResponseEntity.ok(categoryService.listAllCategories());
     }
 
     @GetMapping("/get/{id}")
+    @PermitAll
     public ResponseEntity<Category> getCategoryById(@PathVariable Integer id){
         ResponseEntity<Category> response;
 

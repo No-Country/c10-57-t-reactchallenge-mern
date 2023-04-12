@@ -26,11 +26,13 @@ public class ImageController {
     }
 
     @GetMapping("/list")
+    @PermitAll
     public ResponseEntity<List<Image>> listAllImage(){
         return ResponseEntity.ok(imageService.listAllImages());
     }
 
     @GetMapping("/get/{id}")
+    @PermitAll
     public ResponseEntity<Image> getImageById(@PathVariable Integer id){
         ResponseEntity<Image> response;
 
@@ -44,7 +46,7 @@ public class ImageController {
         return response;
     }
     @GetMapping("/product/{id}")
-    //@PermitAll
+    @PermitAll
     public ResponseEntity<List<Image>> findAllImagesByProduct(@PathVariable Long id){
         return ResponseEntity.ok(imageService.findAllImagesByProduct(id));
     }

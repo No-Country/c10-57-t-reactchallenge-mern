@@ -26,11 +26,13 @@ public class CityController {
     }
 
     @GetMapping("/list")
+    @PermitAll
     public ResponseEntity<List<City>> listAllCities(){
         return ResponseEntity.ok(cityService.listAllCities());
     }
 
     @GetMapping("/get/{id}")
+    @PermitAll
     public ResponseEntity<City> getCityById(@PathVariable Integer id){
         ResponseEntity<City> response;
 

@@ -1,5 +1,6 @@
 package com.example.conocemelat.jwt.security;
 
+import com.example.conocemelat.enums.Rol;
 import com.example.conocemelat.service.impl.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,21 +71,27 @@ public class SecurityConfiguration {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()*/
         http.csrf().disable().authorizeRequests()
-                .antMatchers("authenticate").permitAll()
-                .antMatchers("/categories/**").permitAll()
-                .antMatchers("/bookings/**").permitAll()
-                .antMatchers("/characteristics/**").permitAll()
-                .antMatchers("/cities/**").permitAll()
-                .antMatchers("/countries/**").permitAll()
-                .antMatchers("/images/**").permitAll()
-                .antMatchers("/products/**").permitAll()
-                .antMatchers("/roles/**").permitAll()
-                .antMatchers("/users/**").permitAll()
-                .antMatchers("/product-characteristics/**").permitAll()
+                .and().authorizeRequests().antMatchers("authenticate").permitAll()
+                .and().authorizeRequests().antMatchers("/categories/**").permitAll()
+                .and().authorizeRequests().antMatchers("/bookings/**").permitAll()
+                .and().authorizeRequests().antMatchers("/characteristics/**").permitAll()
+                .and().authorizeRequests().antMatchers("/cities/**").permitAll()
+                .and().authorizeRequests().antMatchers("/countries/**").permitAll()
+                .and().authorizeRequests().antMatchers("/images/**").permitAll()
+                .and().authorizeRequests().antMatchers("/products/**").permitAll()
+                .and().authorizeRequests().antMatchers("/roles/**").permitAll()
+                .and().authorizeRequests().antMatchers("/users/**").permitAll()
+                //.and().authorizeRequests().antMatchers("/users/**").hasAuthority((Rol.ROLE_USER.name()))
+                .and().authorizeRequests().antMatchers("/product-characteristics/**").permitAll()
+                .and().authorizeRequests().antMatchers("/swagger-ui/index/**").permitAll()
+                .and().authorizeRequests().antMatchers("/swagger-ui/**").permitAll()
+                .and().authorizeRequests().antMatchers("/v3/api-docs/**").permitAll()
+                .and().authorizeRequests().antMatchers("/v2/api-docs/**").permitAll()
                 //.antMatchers(UrlMapping.AUTH + UrlMapping.LOGIN).permitAll()
                 //.antMatchers(UrlMapping.VALIDATE_JWT).permitAll()
-                //.antMatchers("/api/test/**").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/api/test/**").permitAll()
+                //.anyRequest().authenticated()
+                .anyRequest().permitAll()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 

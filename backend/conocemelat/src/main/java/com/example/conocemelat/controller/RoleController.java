@@ -26,11 +26,13 @@ public class RoleController {
     }
 
     @GetMapping("/list")
+    @PermitAll
     public ResponseEntity<List<Role>> listAllRoles(){
         return ResponseEntity.ok(roleService.listAllRoles());
     }
 
     @GetMapping("/get/{id}")
+    @PermitAll
     public ResponseEntity<Role> getRoleById(@PathVariable Integer id){
         ResponseEntity<Role> response;
 
@@ -45,6 +47,7 @@ public class RoleController {
     }
 
     @PutMapping("/update")
+    @PermitAll
     public ResponseEntity<Role> updateRole(@RequestBody Role role){
         ResponseEntity<Role> response;
         if (role.getIdRole() != null && roleService.getRoleById(role.getIdRole()) != null){
@@ -56,6 +59,7 @@ public class RoleController {
     }
 
     @DeleteMapping("/delete/{id}")
+    @PermitAll
     public ResponseEntity<String> deleteRole(@PathVariable Integer id){
         roleService.deleteRole(Long.valueOf(id));
         return ResponseEntity.ok().body("Deleted");

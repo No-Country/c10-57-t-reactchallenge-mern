@@ -49,6 +49,7 @@ public class BookingController {
     }
 
     @PutMapping("/update")
+    @PermitAll
     public ResponseEntity<Booking> updateBooking(@RequestBody Booking booking){
         ResponseEntity<Booking> response;
         if (booking.getIdBooking() != null && bookingService.getBookingById(booking.getIdBooking()) != null) {
@@ -60,6 +61,7 @@ public class BookingController {
     }
 
     @DeleteMapping("/delete/{id}")
+    @PermitAll
     public ResponseEntity<String> deleteBooking(@PathVariable Integer id){
         bookingService.deleteBooking(Long.valueOf(id));
         return ResponseEntity.ok().body("Deleted");
