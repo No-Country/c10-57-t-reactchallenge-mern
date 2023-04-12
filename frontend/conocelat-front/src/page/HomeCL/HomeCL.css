@@ -78,19 +78,37 @@
 }
 .form-data-container{
     width: 100%;
-    height: 92%;
+    height: 100%;
     display: flex;
     align-items: center!important;
     justify-content: center!important;
 }
+
 .form-data{
     position: relative;
+    transition: height 0.3s ease-in-out;
     width: 32rem;
-    height: 28rem;
+    min-height: 28rem;
     background-color: white;
     z-index: 9999;
     border-radius: 20px;
 }
+/* .form-success {
+    height: 28rem;
+    background-color: #35ed2f;
+} */
+.form--error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    background-color: red;
+}
+.data-errors{
+    color: red;
+}
+
 .form_data-title{
     display: flex;
     font-weight: 600;
@@ -103,13 +121,14 @@
     width: 100%;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
-    background-color: rgb(255, 255, 255);
+    background-color: #e5e7eb;
 
 }
 .data-title{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 10px 0px;
 }
 
 .form_data-body{
@@ -120,14 +139,29 @@
     padding: 2em;
 }
 .register-butoom{
-    background-color: yellow;
+    background-color: #3b82f6;
     width: 100%!important;
 }
+
+.button-data{
+    color: #fff;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    background-color: #3b82f6;
+}
+
+.button-data:hover{
+    background-color: #60a5fa;
+}
+
+
 
 .form-data-login{
     position: relative;
     width: 32rem;
-    height: 20rem;
+    transition: height 0.3s ease-in-out;
+    min-height: 22rem;
     background-color: white;
     z-index: 9999;
     border-radius: 20px;
