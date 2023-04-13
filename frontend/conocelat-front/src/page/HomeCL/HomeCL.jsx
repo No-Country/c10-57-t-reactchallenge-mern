@@ -4,8 +4,9 @@ import { UserContext } from "../../context/userContext";
 // import { UserContext } from '../../context/userContext';
 import banner from "../../assets/bannerStart.svg";
 import Grilla from "../../components/Home/Grilla";
-import { Search } from "../../components/Home/Search";
 import { userRegister } from "../../helpers/userRegister";
+import { FilterData } from "../../components/Home/FilterData/FilterData";
+import { Search } from "../../components/Search/Search";
 
 export const HomeCL = () => {
   const {
@@ -150,7 +151,12 @@ export const HomeCL = () => {
         <div className="data__start">
           <img className="data__image" src={banner} alt="banner vacio" />
         </div>
-        <Search/>
+        <div>
+          <div className="container mx-auto p-4 md:flex md:justify-center md:p-8">
+            <Search />
+          </div>
+          <FilterData />
+        </div>
         <h3 className="titulo-home">Nuestros recomendados</h3>
         <Grilla />
         <h2 className="lema-home">Latinoamérica, un mundo por descubrir</h2>
@@ -161,7 +167,7 @@ export const HomeCL = () => {
         className="form-container"
       >
         <div className="form-data-container">
-          <div className={`form-data`}>
+          <div className="form-data">
             <div className="form_data-title">
               <p className="data-title">Registro de usuario</p>
               <button

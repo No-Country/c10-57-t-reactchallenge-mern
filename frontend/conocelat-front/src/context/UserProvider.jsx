@@ -22,6 +22,9 @@ export const UserProvider = ({ children }) => {
   });
   const [errorsLogin, setErrorsLogin] = useState({});
   const [isSubmittedLogin, setIsSubmittedLogin] = useState(false);
+  const [state, setState] = useState(undefined);
+  const [userChoice, setUserChoice] = useState("");
+  const [filter, setFilter] = useState(undefined);
 
   return (
     <UserContext.Provider
@@ -43,7 +46,13 @@ export const UserProvider = ({ children }) => {
         errorsLogin, 
         setErrorsLogin,
         isSubmittedLogin, 
-        setIsSubmittedLogin
+        setIsSubmittedLogin,
+        state,
+        setState,
+        userChoice,
+        setUserChoice,
+        filter,
+        setFilter,
       }}
     >
       {children}
