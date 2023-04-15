@@ -5,10 +5,19 @@ import { LoginCL } from "./page/LoginCL/LoginCL";
 import { RegisterCL } from "./page/RegisterCL/RegisterCL";
 import { UserProvider } from "./context/UserProvider";
 import { HomeCL } from "./page/HomeCL/HomeCL";
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
+
 
 function App() {
+
+  const queryClient = new QueryClient()
+
+
+
   return (
     <BrowserRouter>
+    <QueryClientProvider client={queryClient}>
       <UserProvider>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -18,6 +27,8 @@ function App() {
           </Route>
         </Routes>
       </UserProvider>
+      <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
     </BrowserRouter>
   );
 }
