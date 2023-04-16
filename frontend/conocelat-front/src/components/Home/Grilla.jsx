@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from './Card'
-import { AtraccionesTuristicas } from './Card'
+//import { AtraccionesTuristicas } from './Card'
 import { useQuery } from "react-query";
 
 
@@ -9,7 +9,7 @@ import { useQuery } from "react-query";
 export default function Grilla() {
 const getProducts = async () => {
   const info = await
-  fetch("https://rickandmortyapi.com/api/character")
+  fetch("https://conocelat-backend-production.up.railway.app/products/list")
   .then((res) => res.json())
   .catch((e) => "error");
   return info;
@@ -21,7 +21,11 @@ const getProducts = async () => {
 
   return (<>
     <div className="flex flex-wrap justify-center">
-      {AtraccionesTuristicas.map((atraccion, index) => (
+       {/*{AtraccionesTuristicas.map((atraccion, index) => (
+        <Card atraccion={atraccion} key={index} />
+      ))}*/}
+
+      {data?.map((atraccion, index) => (
         <Card atraccion={atraccion} key={index} />
       ))}
     </div></>

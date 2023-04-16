@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import "./Card.css"
-export const AtraccionesTuristicas = [
+import Imagen from './Imagen';
+/*export const AtraccionesTuristicas = [
   {
     nombre: 'Machu Picchu',
     foto: 'https://www.infobae.com/new-resizer/TVauRmC_ZxLJw_GSDpUt5G4VTW0=/768x512/filters:format(webp):quality(85)/cloudfront-us-east-1.images.arcpublishing.com/infobae/QODFX2DCF5HKTD2XN2HM6V42VY.jpg',
@@ -34,7 +35,7 @@ export const AtraccionesTuristicas = [
     precio: 120,
     id: 4,
   }
-];
+];*/
 
 const Card = ({ atraccion }) => {
   const popupRef = useRef(null);
@@ -45,11 +46,13 @@ const Card = ({ atraccion }) => {
 
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl card-container" >
-      <img className="card-foto" src={atraccion.foto} alt={atraccion.nombre} />
+    <Imagen id={atraccion.idProduct}></Imagen>
+
+
       <div className="px-6 py-4 card-information">
-        <div className="font-bold text-xl mb-2">{atraccion.nombre}</div>
-        <p className="text-gray-700 text-base italic">{atraccion.lugar}</p>
-        <p className="text-gray-700 text-base">{atraccion.descripcion.substring(0, 50).concat("...")}</p>
+        <div className="font-bold text-xl mb-2">{atraccion.productTitle}</div>
+        <p className="text-gray-700 text-base italic">{atraccion.city.cityName}</p>
+        <p className="text-gray-700 text-base">{atraccion.productDescription}</p>
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded card-button"
           onClick={handlePopup}
@@ -60,16 +63,24 @@ const Card = ({ atraccion }) => {
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded pt-2 pb-2 px-4 close-card"
             onClick={handlePopup}>X</button>
-          <img className="detalle-foto" src={atraccion.foto} alt={atraccion.nombre} />
-          <div className="font-bold text-xl mb-2">{atraccion.nombre}</div>
-        <p className="text-gray-700 text-base italic">{atraccion.lugar}</p>
-        <p className="text-gray descripcion">{atraccion.descripcion}</p>
-        <h2 className="mt-4 font-bold">Precio por persona: {atraccion.precio}</h2>
+      
+
+
+          <div className="font-bold text-xl mb-2">{atraccion.productTitle}</div>
+        <p className="text-gray-700 text-base italic">{atraccion.city.cityName}</p>
+        <p className="text-gray descripcion">{atraccion.productDescription}</p>
+        <h2 className="mt-4 font-bold">Precio por persona: {atraccion.productPrice}</h2>
+
+        <div className='flex gap-1.5'>
+            <p>Cuenta con:  </p>
+            {atraccion.characteristics.map((item, index) => (
+              <img className="caracteristicas" src={item?.characteristicImage} alt={item?.characteristicName} />))}</div>
         <p className="pedido">Fecha: </p>
         <p className="pedido">Cantidad: </p>
+        <h2>{atraccion.idProduct}</h2>
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded card-button"
-          >Agregar al carrito</button>
+          >Comprar</button>
         </div>
       </div>
     </div>
