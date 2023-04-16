@@ -1,0 +1,14 @@
+[
+  {
+      "idCategory": 1,
+      "categoryTitle": "Lugares historicos"
+  },
+  {
+      "idCategory": 2,
+      "categoryTitle": "Sitios Naturales"
+  },
+  {
+      "idCategory": 3,
+      "categoryTitle": "Atractivos culturales"
+  }
+]

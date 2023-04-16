@@ -5,6 +5,7 @@ import { LoginCL } from "./page/LoginCL/LoginCL";
 import { RegisterCL } from "./page/RegisterCL/RegisterCL";
 import { UserProvider } from "./context/UserProvider";
 import { HomeCL } from "./page/HomeCL/HomeCL";
+import { ProductList } from "./components/ProductList/ProductList";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="login" element={<LoginCL />} />
             <Route path="Register" element={<RegisterCL />} />
           </Route>
+          <Route path="/category/:categoryId" element={<ProductList />} />
         </Routes>
       </UserProvider>
     </BrowserRouter>
