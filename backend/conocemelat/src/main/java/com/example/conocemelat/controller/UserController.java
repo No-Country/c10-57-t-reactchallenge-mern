@@ -1,10 +1,13 @@
 package com.example.conocemelat.controller;
 
+import com.example.conocemelat.jwt.model.AuthenticationResquest;
+import com.example.conocemelat.model.Role;
 import com.example.conocemelat.model.User;
 import com.example.conocemelat.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.PermitAll;
@@ -18,10 +21,15 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @PostMapping("/save")
     //no tenia el permitAll
     @PermitAll
     public ResponseEntity<User> saveUser(@RequestBody User user){
+        String passWEncrypt= passwordEncoder.encode(user.getUserPassword());
+        user.setUserPassword(passWEncrypt);
         return ResponseEntity.ok(userService.saveUser(user));
     }
 
@@ -64,5 +72,13 @@ public class UserController {
         userService.deleteUser(Long.valueOf(id));
         return ResponseEntity.ok().body("Deleted");
     }
+
+    //@RequestMapping(value = "/login", method = RequestMethod.POST)
+    //public String hello() {
+        //return "Felicitaciones pudiste ingresar dentro de nuestra app";
+    //}
+
+
+
 
 }

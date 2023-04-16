@@ -52,10 +52,10 @@ public class SecurityConfiguration {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        //return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder();
         //agregado, no iba
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        return bCryptPasswordEncoder;
+        //BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        //return bCryptPasswordEncoder;
     }
 
     @Bean
@@ -71,7 +71,8 @@ public class SecurityConfiguration {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()*/
         http.csrf().disable().authorizeRequests()
-                .and().authorizeRequests().antMatchers("authenticate").permitAll()
+                .and().authorizeRequests().antMatchers("/authenticate/**").permitAll()
+                .and().authorizeRequests().antMatchers("/login/**").permitAll()
                 .and().authorizeRequests().antMatchers("/categories/**").permitAll()
                 .and().authorizeRequests().antMatchers("/bookings/**").permitAll()
                 .and().authorizeRequests().antMatchers("/characteristics/**").permitAll()
@@ -89,7 +90,7 @@ public class SecurityConfiguration {
                 .and().authorizeRequests().antMatchers("/v2/api-docs/**").permitAll()
                 //.antMatchers(UrlMapping.AUTH + UrlMapping.LOGIN).permitAll()
                 //.antMatchers(UrlMapping.VALIDATE_JWT).permitAll()
-                .antMatchers("/api/test/**").permitAll()
+                //.antMatchers("/api/test/**").permitAll()
                 //.anyRequest().authenticated()
                 .anyRequest().permitAll()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

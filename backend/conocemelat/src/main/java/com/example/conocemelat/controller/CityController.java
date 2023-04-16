@@ -1,6 +1,7 @@
 package com.example.conocemelat.controller;
 
 import com.example.conocemelat.model.City;
+import com.example.conocemelat.model.Product;
 import com.example.conocemelat.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,4 +46,18 @@ public class CityController {
 
         return response;
     }
+
+    @PutMapping("/update")
+    @PermitAll
+    public ResponseEntity<City> updateCity(@RequestBody City city){
+        ResponseEntity<City> response;
+        if (city.getIdCity() != null && cityService.getCityById(city.getIdCity()) != null){
+            response = ResponseEntity.ok(cityService.saveCity(city));
+        }else{
+            response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return response;
+    }
+
+
 }
