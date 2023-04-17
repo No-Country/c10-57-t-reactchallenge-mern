@@ -5,8 +5,6 @@ import Card from "../Card";
 export const FilterData = () => {
   const { filter } = useContext(UserContext);
 
-  console.log(filter);
-
   if (filter === undefined) {
     return <div></div>;
   }
@@ -20,7 +18,8 @@ export const FilterData = () => {
       )}
       <div className="flex flex-wrap justify-center">
         {filter.map((atraccion, index) => (
-          <Card atraccion={atraccion} key={index} />
+          //<Card atraccion={atraccion} key={index} />
+          <p key={index}>{atraccion.productTitle}</p>
         ))}
       </div>
     </div>
