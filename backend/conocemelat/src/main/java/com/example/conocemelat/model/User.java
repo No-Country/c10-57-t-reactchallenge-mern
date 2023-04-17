@@ -19,10 +19,10 @@ public class User implements Serializable {
     @JoinColumn(name = "id_role")
     private Role role;
 
-    @Column(name = "user_name", nullable = false, unique = true)
+    @Column(name = "user_name", nullable = false, unique = false)
     private String userName;
 
-    @Column(name = "user_last_name", nullable = false, unique = true)
+    @Column(name = "user_last_name", nullable = false, unique = false)
     private String userLastName;
 
     @Column(name = "user_email", nullable = false, unique = true)
