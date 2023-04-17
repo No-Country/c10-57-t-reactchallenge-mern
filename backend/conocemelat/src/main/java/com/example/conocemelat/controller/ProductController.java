@@ -87,20 +87,18 @@ public class ProductController {
     }
 
     @GetMapping("/search-date")
-    @PermitAll
-    public ResponseEntity<List<Product>> findProductsByDate(@RequestParam(value = "date_in", required = false) String checkInDay,
-                                                            @RequestParam(value = "date_out", required = false)String checkOutDay) throws ParseException {
+    public ResponseEntity<List<Product>> findProductsByDate(@RequestParam(value = "date_in", required = false) String checkIn,
+                                                            @RequestParam(value = "date_out", required = false)String checkOut) throws ParseException {
         String pattern = "yyyy-MM-dd";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 
-        Date dateIn = simpleDateFormat.parse(checkInDay);
-        Date dateOut = simpleDateFormat.parse(checkOutDay);
+        Date dateIn = simpleDateFormat.parse(checkIn);
+        Date dateOut = simpleDateFormat.parse(checkOut);
 
         return ResponseEntity.ok(productService.findProductsByDate(dateIn, dateOut));
     }
 
     @GetMapping("/search")
-    @PermitAll
     public ResponseEntity<List<Product>> searchByParams(@RequestParam (value = "date_in", required = false) String checkInDay,
                                                         @RequestParam (value = "date_out", required = false) String checkOutDay,
                                                         @RequestParam (value = "id_city", required = false) Long idCity) throws ParseException {

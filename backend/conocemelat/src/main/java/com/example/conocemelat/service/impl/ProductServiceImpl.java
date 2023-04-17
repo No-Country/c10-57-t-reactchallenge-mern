@@ -76,13 +76,13 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> findProductsByDate(Date checkIn, Date checkOut) {
-        return productRepository.findProductsByDate(checkIn, checkOut);
+    public List<Product> findProductsByDate(Date checkInDay, Date checkOutDay) {
+        return productRepository.findProductsByDate(checkInDay, checkOutDay);
     }
 
     @Override
-    public List<Product> findAllProductsByCityAndDate(Date checkIn, Date checkOut, Long id) {
-        return productRepository.findAllProductsByCityAndDate(checkIn, checkOut, id);
+    public List<Product> findAllProductsByCityAndDate(Date checkInDay, Date checkOutDay, Long id) {
+        return productRepository.findAllProductsByCityAndDate(checkInDay, checkOutDay, id);
     }
 
     //@Override
