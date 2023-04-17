@@ -44,16 +44,27 @@ const Card = ({ atraccion }) => {
     popupRef.current.classList.toggle("show");
   }
 
+//select de cantidad: 
+const opciones = [
+  { value: 1, label: '1' },
+  { value: 2, label: '2' },
+  { value: 3, label: '3' },
+  { value: 4, label: '4' },
+  { value: 5, label: '5' },
+];
+
+
+
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl card-container" >
 
-    <Imagen id={atraccion.idProduct} url1={"https://conocelat-backend-production.up.railway.app/images/product/"+atraccion.idProduct}></Imagen>
-
+    <Imagen id={atraccion.idProduct}></Imagen>
+    
 
       <div className="px-6 py-4 card-information">
         <div className="font-bold text-xl mb-2">{atraccion.productTitle}</div>
         <p className="text-gray-700 text-base italic">{atraccion.city.cityName}</p>
-        <p className="text-gray-700 text-base">{atraccion.productDescription}</p>
+        <p className="text-gray-700 text-base">{atraccion.productDescription.substring(0, 80).concat("...")}</p>
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded card-button"
           onClick={handlePopup}
@@ -64,7 +75,7 @@ const Card = ({ atraccion }) => {
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded pt-2 pb-2 px-4 close-card"
             onClick={handlePopup}>X</button>
-      
+       <Imagen id={atraccion.idProduct}></Imagen>
 
 
           <div className="font-bold text-xl mb-2">{atraccion.productTitle}</div>
@@ -76,12 +87,26 @@ const Card = ({ atraccion }) => {
             <p>Cuenta con:  </p>
             {atraccion.characteristics.map((item, index) => (
               <img className="caracteristicas" src={item?.characteristicImage} alt={item?.characteristicName} />))}</div>
-        <p className="pedido">Fecha: </p>
-        <p className="pedido">Cantidad: </p>
-        <h2>{atraccion.idProduct}</h2>
+        
+        
+       <div className='flex '>
+        <select
+        className=" bg-white border border-gray-400 hover:border-gray-500 sm:py-0 lg:py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline font-bold "
+        name="opciones"
+      >
+        <option value="" disabled selected>
+          Cantidad
+        </option>
+        {opciones.map((opcion) => (
+          <option key={opcion.value} value={opcion.value}>
+            {opcion.label}
+          </option>
+        ))}
+      </select>
+     
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded card-button"
-          >Comprar</button>
+            className=" mr-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded card-button"
+          >Comprar</button></div>
         </div>
       </div>
     </div>
