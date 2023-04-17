@@ -69,3 +69,7 @@ Postman
 
 
 ## Deploy: 
+
+Railway 
+
+Azure
