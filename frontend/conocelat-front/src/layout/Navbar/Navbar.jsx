@@ -5,17 +5,15 @@ import "./Navbar.css";
 import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "../../context/userContext";
+import { menuHome } from "../../helpers/menuHome";
 
 export const Navbar = () => {
   const {
     setRegister,
     setLoginUser,
     userExists,
-    formData,
     setFormData,
-    errors,
     setErrors,
-    isSubmitted,
     setIsSubmitted,
     setFormDataLogin,
     setErrorsLogin,
@@ -30,6 +28,7 @@ export const Navbar = () => {
   };
   const handleRegister = (event) => {
     event.preventDefault();
+    console.log("ccamaxx")
     setRegister(true);
     setLoginUser(false);
 
@@ -39,6 +38,7 @@ export const Navbar = () => {
   };
   const handleLogin = (event) => {
     event.preventDefault();
+    console.log("cruxxx")
     setRegister(false);
     setLoginUser(true);
 
@@ -79,38 +79,19 @@ export const Navbar = () => {
         </div>
 
         <ul className="data__container-menu">
-          <li className="ml-8">
-            <a className="navbar-link text-black" href="#register">
-              Descubrir
-            </a>
-          </li>
-          <li className="ml-8">
-            <a className="navbar-link text-black" href="#register">
-              Actividades
-            </a>
-          </li>
-          <li className="ml-8">
-            <a className="navbar-link text-black" href="#register">
-              Acerca
-            </a>
-          </li>
-          <li className="ml-8">
-            <a className="navbar-link text-black" href="#register">
-              Contactos
-            </a>
-          </li>
-          {/* <li  className="ml-8">
-                        <a className="navbar-link text-black" href="" onClick={handleStart}>
-                            Inicio
-                        </a>
-                    </li>
-                    <li  className="ml-8">
-                        <a className="navbar-link text-black" href="#register" onClick={handleRegister}>
-                            Registros
-                        </a>
-                    </li> */}
-          {/* <NavLink to="/login" className="ml-8 "><a className="navbar-link" href="#">Inicio de seccion</a></NavLink> */}
-          {/* <NavLink to="/register" className="ml-8"><a className="navbar-link" href="#">Registro</a></NavLink> */}
+          {
+            // menu de header
+            menuHome.map((item,index)=>(
+              <NavLink
+                to={item.path}
+                key={index}
+                className="ml-8 navbar-link text-black"
+                end
+              >
+                <div>{item.name}</div>
+              </NavLink>
+            ))
+          }
         </ul>
         <div className="data__container-buttom">
           <button className="buttom-register" style={{ display: userExists === "" ? "block" : "none" }} onClick={handleRegister}>
@@ -164,35 +145,39 @@ export const Navbar = () => {
                   <div className="font-medium ">Correo</div>
                   <div className="truncate">{userExists}</div>
                 </div>
-                <ul
-                  className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                  aria-labelledby="dropdownAvatarNameButton"
-                >
-                  <li>
-                    <a
-                      href="#"
+                <div className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                  aria-labelledby="dropdownAvatarNameButton">
+                    <NavLink
+                      to='/Dashboard'
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      aria-labelledby="dropdownAvatarNameButton"
+                      end
                     >
                       Dashboard
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
+                    </NavLink>
+                </div>
+                <div className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                  aria-labelledby="dropdownAvatarNameButton">
+                    <NavLink
+                      to='/login'
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      aria-labelledby="dropdownAvatarNameButton"
+                      end
                     >
                       Settings
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
+                    </NavLink>
+                </div>
+                <div className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                  aria-labelledby="dropdownAvatarNameButton">
+                    <NavLink
+                      to='/login'
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      aria-labelledby="dropdownAvatarNameButton"
+                      end
                     >
-                      Earnings
-                    </a>
-                  </li>
-                </ul>
+                      Cerrar session
+                    </NavLink>
+                </div>
               </div>
             )}
           </div>

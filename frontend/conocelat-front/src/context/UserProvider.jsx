@@ -25,6 +25,7 @@ export const UserProvider = ({ children }) => {
   const [state, setState] = useState(undefined);
   const [userChoice, setUserChoice] = useState("");
   const [filter, setFilter] = useState(undefined);
+  const [setIsOpenModalRegister,openModalRegister] = useState(false)
 
   return (
     <UserContext.Provider
