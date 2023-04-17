@@ -24,6 +24,7 @@ export const UserProvider = ({ children }) => {
   const [isSubmittedLogin, setIsSubmittedLogin] = useState(false);
   const [state, setState] = useState(undefined);
   const [userChoice, setUserChoice] = useState("");
+  const [categories, setCategories] = useState("");
   const [filter, setFilter] = useState(undefined);
   const [setIsOpenModalRegister,openModalRegister] = useState(false)
 
@@ -42,11 +43,11 @@ export const UserProvider = ({ children }) => {
         setErrors,
         isSubmitted,
         setIsSubmitted,
-        formDataLogin, 
+        formDataLogin,
         setFormDataLogin,
-        errorsLogin, 
+        errorsLogin,
         setErrorsLogin,
-        isSubmittedLogin, 
+        isSubmittedLogin,
         setIsSubmittedLogin,
         state,
         setState,
@@ -54,6 +55,8 @@ export const UserProvider = ({ children }) => {
         setUserChoice,
         filter,
         setFilter,
+        categories,
+        setCategories,
       }}
     >
       {children}

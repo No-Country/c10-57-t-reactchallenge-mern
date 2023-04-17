@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "../../context/userContext";
 import { menuHome } from "../../helpers/menuHome";
+import categories from "../../data/categories.json";
 
 export const Navbar = () => {
   const {
@@ -17,7 +18,7 @@ export const Navbar = () => {
     setIsSubmitted,
     setFormDataLogin,
     setErrorsLogin,
-    setIsSubmittedLogin
+    setIsSubmittedLogin,
   } = useContext(UserContext);
   const [menu, setMenu] = useState(false);
   const [userData, setUserDataChange] = useState(null);
@@ -26,13 +27,18 @@ export const Navbar = () => {
   const handleClick = () => {
     setMenu(!menu);
   };
+
+  const handleCloseMenu = () => {
+    setMenu(false);
+  };
+
   const handleRegister = (event) => {
     event.preventDefault();
     console.log("ccamaxx")
     setRegister(true);
     setLoginUser(false);
 
-    setFormDataLogin({ emailLogin: "", passwordsLogin: ""});
+    setFormDataLogin({ emailLogin: "", passwordsLogin: "" });
     setErrorsLogin({});
     setIsSubmittedLogin(false);
   };
@@ -65,20 +71,24 @@ export const Navbar = () => {
 
   return (
     <nav className="data-container navbar-container shadow w-full top-0 left-0">
-      <div className="data__container-option  md:flex items-center justify-between  px-4 py-4 md:px-8">
-        <div className="data__container-logo  flex items-center justify-between px-2 md:px-0">
-          <a to="/" className="flex items-center">
+      <div className="data__container-option md:px-8">
+        <div className="data__container-logo  flex items-center ml-4 justify-between px-2 md:px-0 md:ml-0">
+          <NavLink
+            to="/"
+            className="flex items-center"
+            onClick={handleCloseMenu}
+          >
             <img src={logo} alt="logo" />
             <span className="hidden navbar-link md:block md:ml-2 md:text-xl text-black">
               ConoceLat
             </span>
-          </a>
+          </NavLink>
           <button onClick={handleClick} className="menu md:hidden">
             {menu ? <RiCloseFill /> : <BiMenu />}
           </button>
         </div>
 
-        <ul className="data__container-menu">
+        {/* <ul className="data__container-menu">
           {
             // menu de header
             menuHome.map((item,index)=>(
@@ -92,9 +102,43 @@ export const Navbar = () => {
               </NavLink>
             ))
           }
+        </ul> */}
+        <ul
+          className={`absolute mt-64 md:mt-0 bg-white md:bg-transparent w-full z-[-1] py-8 space-y-4 duration-500 ease-in
+                                md:space-y-0 md:py-0 md:z-0 md:w-fit md:static md:flex md:items-center md:transition-none
+                                ${menu ? "left-0" : "left-[-768px]"}`}
+        >
+          <li className="ml-8">
+            <NavLink
+              onClick={handleCloseMenu}
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "link-active" : "link-inactive"
+              }
+            >
+              Inicio
+            </NavLink>
+          </li>
+          {categories.map((data) => (
+            <li className="ml-8" key={data.idCategory}>
+              <NavLink
+                onClick={handleCloseMenu}
+                className={({ isActive }) =>
+                  isActive ? "link-active" : "link-inactive"
+                }
+                to={`/category/${data.idCategory}`}
+              >
+                {data.categoryTitle}
+              </NavLink>
+            </li>
+          ))}
         </ul>
-        <div className="data__container-buttom">
-          <button className="buttom-register" style={{ display: userExists === "" ? "block" : "none" }} onClick={handleRegister}>
+        <div className="data__container-buttom mr-4 md:mr-0">
+          <button
+            className="buttom-register"
+            style={{ display: userExists === "" ? "block" : "none" }}
+            onClick={handleRegister}
+          >
             Registrar
           </button>
           <button

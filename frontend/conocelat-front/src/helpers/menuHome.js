@@ -1,18 +1,22 @@
 export const menuHome = [
     {
         path: "/",
-        name: "Home",   
+        name: "Inicio",   
     },
     {
         path: "/Discover",
         name: "Descubrir",   
     },
     {
-        path: "/",
-        name: "Actividades",   
+        path: `/PlaceHistory`,
+        name: "Lugares historicos",   
     },
     {
-        path: "/",
-        name: "Acerca",   
+        path: `/NaturalPlace`,
+        name: "Sitios Naturales",
     },
+    {
+        path: `/AttractionsTourist`,
+        name: "Atractivos culturales",
+    }
 ]

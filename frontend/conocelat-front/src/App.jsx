@@ -9,6 +9,7 @@ import { Category } from "./page/DashboardCL/Category/Category";
 import { Characteristic } from "./page/DashboardCL/Characteristic/Characteristic";
 import { Users } from "./page/DashboardCL/Users/Users";
 import { Discover } from "./page/Discover/Discover";
+import { ProductList } from "./components/ProductList/ProductList";
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
               <Route path="Category" element={<Category/>} />
               <Route path="Characteristic" element={<Characteristic/>} />
             </Route>
-            <Route path="Discover" element={<Discover />} />
+            <Route path="/category/:categoryId" element={<ProductList />} />
           </Route>
         </Routes>
       </UserProvider>
