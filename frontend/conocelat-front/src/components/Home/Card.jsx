@@ -46,7 +46,8 @@ const Card = ({ atraccion }) => {
 
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl card-container" >
-    <Imagen id={atraccion.idProduct}></Imagen>
+
+    <Imagen id={atraccion.idProduct} url1={"https://conocelat-backend-production.up.railway.app/images/product/"+atraccion.idProduct}></Imagen>
 
 
       <div className="px-6 py-4 card-information">
