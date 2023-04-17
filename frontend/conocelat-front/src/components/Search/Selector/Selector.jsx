@@ -19,13 +19,20 @@ const customStyles = {
 export const Selector = () => {
   const { state, setState, setUserChoice } = useContext(UserContext);
   useEffect(() => {
-    fetch("https://restcountries.com/v2/all?fields=name&fields=alpha2Code")
+    fetch("https://conocelat-backend-production.up.railway.app/cities/list")
       .then((res) => res.json())
       .then((state) => {
-        const data = state.map((location) => ({
-          value: location.alpha2Code,
-          label: location.name,
-        }));
+        const data = state
+          .map((location) => ({
+            value: location.idCity,
+            label: location.cityName,
+          }))
+          .sort((item1, item2) => {
+            if (item1.label.toLowerCase() > item2.label.toLowerCase()) return 1;
+            else if (item1.label.toLowerCase() < item2.label.toLowerCase())
+              return -1;
+            return 0;
+          });
         setState(data);
       });
   }, []);

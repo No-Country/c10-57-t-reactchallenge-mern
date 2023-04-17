@@ -1,22 +1,36 @@
 import { ButtonPrincipal } from "../Button/ButtonPrincipal";
 import { Selector } from "./Selector/Selector";
 import { DatePicker } from "antd";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import moment from "moment";
 import "./Search.css";
 import { UserContext } from "../../context/userContext";
-import data from "../../data/data.json";
 
 export const Search = () => {
   const { RangePicker } = DatePicker;
   const [dates, setDates] = useState([]);
   const { userChoice, setFilter } = useContext(UserContext);
 
-  const handleSearch = (dates, userChoice) => {
-    const dataFilter = data.filter(
-      (item) => item.idCountry === userChoice.value
-    );
-    setFilter(dataFilter);
+  const getFilter = async (url) => {
+    const dataFilter = await fetch(url);
+    const dataJson = await dataFilter.json();
+    setFilter(dataJson);
+  };
+
+  const handleSearch = async (dates, userChoice) => {
+    if (userChoice !== "" && dates.length === 0) {
+      getFilter(
+        `https://conocelat-backend-production.up.railway.app/products/city/${userChoice.value}`
+      );
+    } else if (userChoice === "" && dates.length > 0) {
+      getFilter(
+        `https://conocelat-backend-production.up.railway.app/products/search-date?date_in=${dates[0]}&date_out=${dates[1]}`
+      );
+    } else if (userChoice !== "" && dates.length > 0) {
+      getFilter(
+        `https://conocelat-backend-production.up.railway.app/products/search?date_in=${dates[0]}&date_out=${dates[1]}&id_city=${userChoice.value}`
+      );
+    }
   };
 
   return (
