@@ -3,12 +3,12 @@
 
 ## Objetivo general:
 
-Crear una plataforma digital que promueva el turismo, brindando información útil y actualizada sobre los lugares turísticos más populares de cada destino donde se puedan reservar entradas para los mismos. 
+Crear una plataforma digital que promueva el turismo en latinoamérica, brindando información útil y actualizada sobre los lugares turísticos más populares de cada destino donde se puedan reservar entradas para los mismos. 
 
 
 ## Objetivos específicos:
 
-Ofrecer una plataforma donde los usuarios puedan encontrar y comprar una variedad de opciones de excursiones en diferentes lugares de latinoamerica
+Ofrecer una plataforma donde los usuarios puedan encontrar y comprar una variedad de opciones de excursiones en diferentes lugares de latinoamérica
 Proporcionar una plataforma que brinde una experiencia de usuario atractiva y facil de usar.
 
 ## Integrantes del equipo:
@@ -42,6 +42,8 @@ Desarrollo del Proyecto:
 IDEs: Visual Studio Code e Intellij IDEA.
 
 Sistemas de control de versiones: Git-Hub.
+
+Documentación: Swagger
 
 Tecnologías utilizadas para el desarrollo del sitio:
 
