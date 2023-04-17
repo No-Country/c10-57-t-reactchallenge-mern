@@ -18,9 +18,9 @@ export default function Imagen({ id, url1 }) {
 
   console.log(img);
   return (<>
-
-    {img.length === 0 ? <img className='w-80' src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/300px-Imagen_no_disponible.svg.png" alt="imagen no dosponible" /> :
-      <img className='w-80 rounded' src={img[0].imageUrl} alt={img[0].imageTitle} />}
+<div class="flex justify-center items-start">
+    {img.length === 0 ? <img className='w-60 h-60 px-0.5' src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/300px-Imagen_no_disponible.svg.png" alt="imagen no dosponible" /> :
+      <img className='w-80 h-60 rounded' src={img[0].imageUrl} alt={img[0].imageTitle} />}</div>
 
   </>)
 }

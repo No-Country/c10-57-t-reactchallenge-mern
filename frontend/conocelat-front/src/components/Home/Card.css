@@ -1,4 +1,4 @@
-.card-container {
+/*.card-container {
   gap: 10px;
   padding: 2%;
   margin-top: 5%;
@@ -13,7 +13,7 @@
 .card-button {
   margin-left: 20%;
   margin-top: 10%;
-}
+}*/
 /* --------VENTANA EMERGENTE----------*/
 .popup {
   position: fixed;
@@ -46,7 +46,7 @@
   margin-top: 2%;
   margin-bottom: 2%;
 }
-.pedido{
+/*.pedido{
   margin-left: 50%;
 }
 .detalle-foto {
@@ -57,10 +57,10 @@
 .descripcion{
   font-size: 0.8rem;
   line-height: 1rem;
- }
+ }*/
  .caracteristicas{
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
 }
 /* ------------------*/
 @media screen and (min-width:280px) and (max-width:480px) {
@@ -83,16 +83,13 @@
     justify-content: space-between;
     align-items: center;
   }
-  .card-foto {
+  /*.card-foto {
     height: 50%;
     width: 60%;
     border-radius: 5%;
     margin-left: 5%;
-  }
-  .card-button {
-    margin-left: 20%;
-    margin-top: 2%;
-  }
+  }*/
+ 
   .close {
     margin-top: 2%;  
   }
