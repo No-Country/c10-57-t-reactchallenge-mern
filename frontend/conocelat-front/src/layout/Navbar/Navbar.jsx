@@ -34,7 +34,7 @@ export const Navbar = () => {
 
   const handleRegister = (event) => {
     event.preventDefault();
-    console.log("ccamaxx")
+    console.log("ccamaxx");
     setRegister(true);
     setLoginUser(false);
 
@@ -44,7 +44,7 @@ export const Navbar = () => {
   };
   const handleLogin = (event) => {
     event.preventDefault();
-    console.log("cruxxx")
+    console.log("cruxxx");
     setRegister(false);
     setLoginUser(true);
 
@@ -88,21 +88,6 @@ export const Navbar = () => {
           </button>
         </div>
 
-        {/* <ul className="data__container-menu">
-          {
-            // menu de header
-            menuHome.map((item,index)=>(
-              <NavLink
-                to={item.path}
-                key={index}
-                className="ml-8 navbar-link text-black"
-                end
-              >
-                <div>{item.name}</div>
-              </NavLink>
-            ))
-          }
-        </ul> */}
         <ul
           className={`absolute mt-64 md:mt-0 bg-white md:bg-transparent w-full z-[-1] py-8 space-y-4 duration-500 ease-in
                                 md:space-y-0 md:py-0 md:z-0 md:w-fit md:static md:flex md:items-center md:transition-none
@@ -189,38 +174,44 @@ export const Navbar = () => {
                   <div className="font-medium ">Correo</div>
                   <div className="truncate">{userExists}</div>
                 </div>
-                <div className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                  aria-labelledby="dropdownAvatarNameButton">
-                    <NavLink
-                      to='/Dashboard'
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      aria-labelledby="dropdownAvatarNameButton"
-                      end
-                    >
-                      Dashboard
-                    </NavLink>
+                <div
+                  className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                  aria-labelledby="dropdownAvatarNameButton"
+                >
+                  <NavLink
+                    to="/Dashboard"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    aria-labelledby="dropdownAvatarNameButton"
+                    end
+                  >
+                    Dashboard
+                  </NavLink>
                 </div>
-                <div className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                  aria-labelledby="dropdownAvatarNameButton">
-                    <NavLink
-                      to='/login'
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      aria-labelledby="dropdownAvatarNameButton"
-                      end
-                    >
-                      Settings
-                    </NavLink>
+                <div
+                  className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                  aria-labelledby="dropdownAvatarNameButton"
+                >
+                  <NavLink
+                    to="/login"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    aria-labelledby="dropdownAvatarNameButton"
+                    end
+                  >
+                    Settings
+                  </NavLink>
                 </div>
-                <div className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                  aria-labelledby="dropdownAvatarNameButton">
-                    <NavLink
-                      to='/login'
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      aria-labelledby="dropdownAvatarNameButton"
-                      end
-                    >
-                      Cerrar session
-                    </NavLink>
+                <div
+                  className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                  aria-labelledby="dropdownAvatarNameButton"
+                >
+                  <NavLink
+                    to="/login"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    aria-labelledby="dropdownAvatarNameButton"
+                    end
+                  >
+                    Cerrar session
+                  </NavLink>
                 </div>
               </div>
             )}

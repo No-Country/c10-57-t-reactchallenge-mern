@@ -68,39 +68,28 @@ menu:focus-visible {
   border-color: #93edf1;
 }
 
-@media screen and (min-width: 280px) and (max-width: 480px) {
-  .data__container-menu {
-    display: none;
-  }
+.link-active {
+  color: #2f80ed;
+  display: inline;
+  border-bottom-width: 2px;
+  border-bottom-color: #2f80ed;
+  padding-bottom: 2px;
 }
-@media screen and (min-width: 480px) and (max-width: 768px) {
-  .data__container-menu {
-    display: none;
-  }
+.link-inactive {
+  position: relative;
+  color: #000000;
+  display: inline-block;
 }
-
-@media screen and (min-width: 768px) and (max-width: 820px) {
-  .data__container-option {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 28px;
-    height: 100%;
-  }
-  .data__container-logo {
-    display: flex;
-  }
-  .data__container-menu {
-    display: none;
-  }
-  .data__container-menu {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    background-color: white;
-    align-items: flex-start;
-  }
-  .data__container-menu > div {
-    flex-basis: 50%;
-  }
+.link-inactive:after {
+  content: "";
+  position: absolute;
+  background-color: #2f80ed;
+  height: 2px;
+  width: 0;
+  left: 0;
+  bottom: -3px;
+  transition: 0.3s;
+}
+.link-inactive:hover:after {
+  width: 100%;
 }

@@ -18,8 +18,7 @@ export const FilterData = () => {
       )}
       <div className="flex flex-wrap justify-center">
         {filter.map((atraccion, index) => (
-          //<Card atraccion={atraccion} key={index} />
-          <p key={index}>{atraccion.productTitle}</p>
+          <Card atraccion={atraccion} key={index} />
         ))}
       </div>
     </div>
