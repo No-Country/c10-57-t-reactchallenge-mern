@@ -1,4 +1,4 @@
-.card-container {
+/*.card-container {
   gap: 10px;
   padding: 2%;
   margin-top: 5%;
@@ -11,9 +11,9 @@
   margin-left: 10%;
 }
 .card-button {
-  margin-left: 30%;
+  margin-left: 20%;
   margin-top: 10%;
-}
+}*/
 /* --------VENTANA EMERGENTE----------*/
 .popup {
   position: fixed;
@@ -34,17 +34,17 @@
 .popup-content {
   background-color: white;
   width: 80%;
-  height: 70%;
-  padding: 20px;
+  height: 80%;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
-.close-card {
+/*.close-card {
   margin-left: 80%;
-  margin-top: 2%;
-  margin-bottom: 2%;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 .pedido{
   margin-left: 50%;
@@ -57,7 +57,11 @@
 .descripcion{
   font-size: 0.8rem;
   line-height: 1rem;
- }
+ }*/
+ .caracteristicas{
+  height: 25px;
+  width: 25px;
+}
 /* ------------------*/
 @media screen and (min-width:280px) and (max-width:480px) {
    /*mobile*/
@@ -79,16 +83,13 @@
     justify-content: space-between;
     align-items: center;
   }
-  .card-foto {
+  /*.card-foto {
     height: 50%;
     width: 60%;
     border-radius: 5%;
     margin-left: 5%;
-  }
-  .card-button {
-    margin-left: 30%;
-    margin-top: 2%;
-  }
+  }*/
+ 
   .close {
     margin-top: 2%;  
   }

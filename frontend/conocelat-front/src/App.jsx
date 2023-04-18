@@ -3,6 +3,9 @@ import { Layout } from "./layout/Layout";
 import { RegisterCL } from "./page/RegisterCL/RegisterCL";
 import { UserProvider } from "./context/UserProvider";
 import { HomeCL } from "./page/HomeCL/HomeCL";
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
+
 import { DashboardCL } from "./page/DashboardCL/DashboardCL";
 import { Products } from "./page/DashboardCL/Products/Products";
 import { Category } from "./page/DashboardCL/Category/Category";
@@ -12,8 +15,14 @@ import { Discover } from "./page/Discover/Discover";
 import { ProductList } from "./components/ProductList/ProductList";
 
 function App() {
+
+  const queryClient = new QueryClient()
+
+
+
   return (
     <BrowserRouter>
+    <QueryClientProvider client={queryClient}>
       <UserProvider>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -28,6 +37,8 @@ function App() {
           </Route>
         </Routes>
       </UserProvider>
+      <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
     </BrowserRouter>
   );
 }
