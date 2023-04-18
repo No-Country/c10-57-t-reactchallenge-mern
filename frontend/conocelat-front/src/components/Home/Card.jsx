@@ -30,7 +30,7 @@ const Card = ({ atraccion }) => {
       <div className="px-6 py-4 card-information">
         <div className="font-bold text-xl mb-2">{atraccion.productTitle}</div>
         <p className="text-gray-700 text-base italic">{atraccion.city.cityName}</p>
-        <p className="text-gray-700 text-base">{atraccion.productDescription.substring(0, 60).concat("...")}</p>
+        <p className="text-gray-700 text-base mb-4 ">{atraccion.productDescription.substring(0, 60).concat("...")}</p>
         <div class="flex justify-center items-end">
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
@@ -40,17 +40,17 @@ const Card = ({ atraccion }) => {
       <div className="popup" ref={popupRef}>
         <div className="popup-content">
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded pt-2 pb-2 px-4 close-card"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded pt-2 pb-2 px-4 close-card ml-auto"
             onClick={handlePopup}>X</button>
           <Imagen id={atraccion.idProduct}></Imagen>
           <div className="font-bold text-xl mb-2">{atraccion.productTitle}</div>
           <p className="text-gray-700 text-base italic">{atraccion.city.cityName}</p>
-          <p className="text-gray descripcion">{atraccion.productDescription}</p>
+          <p className="text-gray descripcion md:p-8">{atraccion.productDescription}</p>
 
-          <div className='gap-1.5 flex mr-2.5'>
-            <p className='text-left '>Cuenta con:</p>
-              {atraccion.characteristics.map((item, index) => (
-                <img className="caracteristicas" src={item?.characteristicImage} alt={item?.characteristicName} />))}</div>
+          <div className='gap-1.5 flex '>
+            <p >Cuenta con:</p>
+            {atraccion.characteristics.map((item, index) => (
+              <img className="caracteristicas" src={item?.characteristicImage} alt={item?.characteristicName} />))}</div>
 
           <h2 className="mt-4 font-bold justify-end ">Precio por persona: {atraccion.productPrice}</h2>
 
