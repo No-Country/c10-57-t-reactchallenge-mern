@@ -1,10 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import "../../index.css";
 import { RegisterCL } from "../../page/RegisterCL/RegisterCL";
 import { LoginCL } from "../../page/LoginCL/LoginCL";
 import { HeroProduct } from "./HeroProduct/HeroProduct";
 import { Spinner } from "./Spinner/Spinner";
+import Card from "../Home/Card";
+import "../../index.css";
+
 export const ProductList = () => {
   const { categoryId } = useParams();
   const [products, setProducts] = useState(undefined);
@@ -44,13 +46,12 @@ export const ProductList = () => {
         ) : (
           <div>
             <HeroProduct category={categoryInfo} />
-            <div className="flex flex-wrap justify-center">
+            <div className="flex flex-wrap justify-center py-4">
               {products.length === 0 ? (
                 <p>No hay productos</p>
               ) : (
                 products.map((atraccion, index) => (
-                  //<Card atraccion={atraccion} key={index} />
-                  <p key={index}>{atraccion.productTitle}</p>
+                  <Card atraccion={atraccion} key={index} />
                 ))
               )}
             </div>
