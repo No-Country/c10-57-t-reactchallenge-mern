@@ -1,10 +1,10 @@
 import { ButtonPrincipal } from "../Button/ButtonPrincipal";
 import { Selector } from "./Selector/Selector";
 import { DatePicker } from "antd";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import moment from "moment";
-import "./Search.css";
 import { UserContext } from "../../context/userContext";
+import "./Search.css";
 
 export const Search = () => {
   const { RangePicker } = DatePicker;
@@ -41,9 +41,12 @@ export const Search = () => {
         onChange={(values) => {
           setDates(
             values.map((item) => {
-              return moment(item).format("YYYY-DD-MM");
+              return item.format("YYYY-MM-DD");
             })
           );
+        }}
+        disabledDate={(current) => {
+          return moment().add(-1, "days") >= current;
         }}
         placeholder={["Ida", "Regreso"]}
         className="bg-slate-50 p-2.5 rounded border border-slate-50 shadow-none"

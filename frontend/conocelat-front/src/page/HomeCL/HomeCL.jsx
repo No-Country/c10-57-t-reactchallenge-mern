@@ -10,13 +10,12 @@ import { RegisterCL } from "../RegisterCL/RegisterCL";
 import { LoginCL } from "../LoginCL/LoginCL";
 
 export const HomeCL = () => {
-
   return (
     <div className="start-container">
+      <div className="data__start">
+        <img className="data__image" src={banner} alt="banner vacio" />
+      </div>
       <div className="start__container-data">
-        <div className="data__start">
-          <img className="data__image" src={banner} alt="banner vacio" />
-        </div>
         <div>
           <div className="container mx-auto p-4 md:flex md:justify-center md:p-8">
             <Search />
@@ -28,8 +27,8 @@ export const HomeCL = () => {
         <h2 className="lema-home">Latinoamérica, un mundo por descubrir</h2>
       </div>
 
-      <RegisterCL/>
-      <LoginCL/>
+      <RegisterCL />
+      <LoginCL />
     </div>
   );
 };
