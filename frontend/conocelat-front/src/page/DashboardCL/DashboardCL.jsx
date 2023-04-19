@@ -1,11 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./DashboardCL.css";
 import user from '../../assets/usuario.png'
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { sidebarDashboard } from '../../helpers/sidebarDashboard';
 import { ModalButton } from '../../components/Modal/ModalButton';
 
 export const DashboardCL = () => {
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   return () => {
+  //     navigate('/', { replace: true });
+  //   };
+  // }, [navigate]);
+
+  // useEffect(() => {
+  //   return () => {
+  //     if(dataUser.status==="not-authenticated"){
+  //       navigate('/', { replace: true });
+  //     }
+  //     else{
+  //       navigate('/Dashboard', { replace: true });
+  //     }
+  //   };
+  // }, [navigate]);
+
   return (
     <div className="container-dashboard">
       <div className='dashboard-data'>

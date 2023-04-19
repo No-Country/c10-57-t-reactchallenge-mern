@@ -135,8 +135,16 @@
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     width: 100%;
-    height: 90%;
+    height: 22rem;
+    overflow-y: scroll;
     padding: 2em;
+}
+.form_data-body::-webkit-scrollbar {
+    width: 8px; /* Ancho del scrollbar */
+}
+
+.form_data-body::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* Color del thumb (la barra del scrollbar) */
 }
 .register-butoom{
     background-color: #3b82f6;

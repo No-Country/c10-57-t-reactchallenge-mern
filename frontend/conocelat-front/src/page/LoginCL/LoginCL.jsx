@@ -1,5 +1,7 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../../context/userContext';
+import { useDispatch } from 'react-redux';
+import { startLoginWithEmailPassword } from '../../store/auth/thunk';
 
 export const LoginCL = () => {
   const {
@@ -13,49 +15,20 @@ export const LoginCL = () => {
     setIsSubmittedLogin,
     loginUser
   } = useContext(UserContext);
-
+  const dispatch = useDispatch();
 
   const handleButtomLogin = () => {
     setFormDataLogin({ emailLogin: "", passwordsLogin: ""});
     setErrorsLogin({});
     setIsSubmittedLogin(false);
     setLoginUser(false);
-    console.log("login");
   };
 
   const handleLogin = (e) => {
-    console.log("ccamaaa")
     e.preventDefault();
     setIsSubmittedLogin(true);
     const newErrorLogin = {};
-    if (validate()) {
-      fetch("http://localhost:5173/users/" + formDataLogin.emailLogin)
-        .then((resp) => {
-          return resp.json();
-        })
-        .then((resp) => {
-          console.log(resp);
-          if (Object.keys(resp).length === 0) {
-            newErrorLogin.emailLogin="Ingrese un email valido"
-            console.log("Please ingrese un usuario valido");
-          } else {
-            if (resp.passwords === formDataLogin.passwordsLogin) {
-              console.log("Ingresocorrectamente", resp);
-              setUserExists(resp.id);
-              // cerrar ventana de login
-              setLoginUser(false);
-            } else {
-              newErrorLogin.passwordsLogin="Ingrese credenciales validas"
-              console.log("Porfavor ingrese crendenciales validas");
-            }
-          }
-          setErrorsLogin(newErrorLogin);
-          console.log("ccamacccc")
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
-    }
+    dispatch(startLoginWithEmailPassword({formDataLogin,setLoginUser,newErrorLogin,setErrorsLogin}));
   };
 
   const validate = () => {
