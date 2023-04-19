@@ -17,7 +17,12 @@ const Card = ({ atraccion }) => {
     { value: 4, label: "4" },
     { value: 5, label: "5" },
   ];
-
+  const handleCarrito = ()=>{
+    alert("click")
+    popupRef.current.classList.toggle("show");
+    const idProd = atraccion[i].productAvailable
+    console.log(idProd);
+  }
   return (
     <div className="max-w-sm rounded-lg overflow-hidden shadow-md sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl gap-12 m-2 card-container">
       <Imagen id={atraccion.idProduct}></Imagen>
@@ -86,8 +91,8 @@ const Card = ({ atraccion }) => {
               ))}
             </select>
 
-            <button className=" mr-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded card-button">
-              Comprar
+            <button className=" mr-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded card-button" onClick={handleCarrito}>
+              Agregar al carrito
             </button>
           </div>
         </div>
