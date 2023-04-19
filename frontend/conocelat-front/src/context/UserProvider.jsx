@@ -8,8 +8,14 @@ export const UserProvider = ({ children }) => {
 
   // form data y validation
   const [formData, setFormData] = useState({
-    email: "",
-    passwords: "",
+    role:{
+      idRole:2,
+      roleName:"user",
+    },
+    userName:"",
+    userLastName:"",
+    userEmail: "",
+    userPassword: "",
     confirmPassword: "",
   });
   const [errors, setErrors] = useState({});

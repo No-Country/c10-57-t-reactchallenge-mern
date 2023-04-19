@@ -4,8 +4,8 @@ import { UserContext } from '../../context/userContext';
 
 const customStyles = {
     content: {
-        width: "50%", // Ajusta el ancho de la modal
-        height: "50%", // Ajusta la altura de la modal
+        width: "40%", // Ajusta el ancho de la modal
+        height: "75%", // Ajusta la altura de la modal
       top: "50%",
       left: "50%",
       right: "auto",

@@ -35,7 +35,7 @@ const Card = ({ atraccion }) => {
         <p className="text-gray-700 text-base mb-4 ">
           {atraccion.productDescription.substring(0, 60).concat("...")}
         </p>
-        <div class="flex justify-center items-end">
+        <div className="flex justify-center items-end">
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
             onClick={handlePopup}
@@ -64,7 +64,9 @@ const Card = ({ atraccion }) => {
           <div className="gap-1.5 flex ">
             <p>Cuenta con:</p>
             {atraccion.characteristics.map((item, index) => (
+
               <img
+                key={index}
                 className="caracteristicas"
                 src={item?.characteristicImage}
                 alt={item?.characteristicName}
@@ -80,8 +82,9 @@ const Card = ({ atraccion }) => {
             <select
               className=" bg-white border border-gray-400 hover:border-gray-500 sm:py-0 lg:py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline font-bold mr-1"
               name="opciones"
+              defaultValue="" 
             >
-              <option value="" disabled selected>
+              <option value="" disabled>
                 Cantidad
               </option>
               {opciones.map((opcion) => (

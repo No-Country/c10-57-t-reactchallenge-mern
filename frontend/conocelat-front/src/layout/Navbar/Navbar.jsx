@@ -3,12 +3,15 @@ import { BiMenu } from "react-icons/bi";
 import { RiCloseFill } from "react-icons/ri";
 import "./Navbar.css";
 import { useContext, useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/userContext";
 import { menuHome } from "../../helpers/menuHome";
 import categories from "../../data/categories.json";
+import { useDispatch, useSelector } from "react-redux";
+import { startLogout } from "../../store/auth/thunk";
 
 export const Navbar = () => {
+  const dispatch = useDispatch();
   const {
     setRegister,
     setLoginUser,
@@ -23,7 +26,15 @@ export const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const [userData, setUserDataChange] = useState(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+  const clearData={
+    userName:"",
+    userLastName:"",
+    userEmail: "", 
+    userPassword: "", 
+    confirmPassword: ""
+  }
+  const dataUser = useSelector((state) => state.auth);
+  
   const handleClick = () => {
     setMenu(!menu);
   };
@@ -48,12 +59,18 @@ export const Navbar = () => {
     setRegister(false);
     setLoginUser(true);
 
-    setFormData({ email: "", passwords: "", confirmPassword: "" });
+    setFormData(clearData);
     setErrors({});
     setIsSubmitted(false);
   };
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
+  };
+  const onLogout = () => {
+    //console.log("logout");
+    dispatch(startLogout());
+    const navigate = useNavigate();
+    navigate('/', { replace: true });
   };
 
   useEffect(() => {
@@ -121,21 +138,21 @@ export const Navbar = () => {
         <div className="data__container-buttom mr-4 md:mr-0">
           <button
             className="buttom-register"
-            style={{ display: userExists === "" ? "block" : "none" }}
+            style={{ display: dataUser.status === "not-authenticated" ? "block" : "none" }}
             onClick={handleRegister}
           >
             Registrar
           </button>
           <button
             className="butoom-login"
-            style={{ display: userExists === "" ? "block" : "none" }}
+            style={{ display: dataUser.status === "not-authenticated" ? "block" : "none" }}
             onClick={handleLogin}
           >
             Login
           </button>
           <div
             className="relative"
-            style={{ display: userExists === "" ? "none" : "block" }}
+            style={{ display: dataUser.status === "not-authenticated" ? "none" : "block" }}
           >
             <button
               id="dropdownAvatarNameButton"
@@ -150,7 +167,7 @@ export const Navbar = () => {
                 src={logo}
                 alt="user photo"
               />
-              {userExists}
+              {dataUser.userEmail}
               <svg
                 className="w-4 h-4 mx-1.5"
                 aria-hidden="true"
@@ -172,7 +189,7 @@ export const Navbar = () => {
               >
                 <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
                   <div className="font-medium ">Correo</div>
-                  <div className="truncate">{userExists}</div>
+                  <div className="truncate">{dataUser.userEmail}</div>
                 </div>
                 <div
                   className="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -187,7 +204,7 @@ export const Navbar = () => {
                     Dashboard
                   </NavLink>
                 </div>
-                <div
+                {/* <div
                   className="py-2 text-sm text-gray-700 dark:text-gray-200"
                   aria-labelledby="dropdownAvatarNameButton"
                 >
@@ -199,19 +216,17 @@ export const Navbar = () => {
                   >
                     Settings
                   </NavLink>
-                </div>
-                <div
-                  className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                  aria-labelledby="dropdownAvatarNameButton"
-                >
-                  <NavLink
-                    to="/login"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    aria-labelledby="dropdownAvatarNameButton"
-                    end
-                  >
-                    Cerrar session
-                  </NavLink>
+                </div> */}
+                <div className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                  aria-labelledby="dropdownAvatarNameButton">
+                    <a
+                      href='/'
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      aria-labelledby="dropdownAvatarNameButton"
+                      onClick={onLogout}
+                    >
+                      Cerrar sesión
+                    </a>
                 </div>
               </div>
             )}

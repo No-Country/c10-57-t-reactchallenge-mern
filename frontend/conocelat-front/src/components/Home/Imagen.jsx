@@ -17,7 +17,7 @@ export default function Imagen({ id, url1 }) {
 
   return (
     <>
-      <div class="bg-cover">
+      <div className="bg-cover">
         {img.length === 0 ? (
           <img
             className="bg-cover w-full h-30 md:h-60 rounded-t-lg"
