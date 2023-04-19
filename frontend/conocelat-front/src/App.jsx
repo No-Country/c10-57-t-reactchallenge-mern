@@ -38,6 +38,7 @@ function App() {
                     <Route path="Characteristic" element={<Characteristic />} />
                   </Route>
                   <Route index element={<HomeCL />} />
+                  <Route path="/category/:categoryId" element={<ProductList />} />
                 </>
                   
               ):(

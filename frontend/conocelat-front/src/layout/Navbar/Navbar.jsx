@@ -204,7 +204,7 @@ export const Navbar = () => {
                     Dashboard
                   </NavLink>
                 </div>
-                <div
+                {/* <div
                   className="py-2 text-sm text-gray-700 dark:text-gray-200"
                   aria-labelledby="dropdownAvatarNameButton"
                 >
@@ -216,7 +216,7 @@ export const Navbar = () => {
                   >
                     Settings
                   </NavLink>
-                </div>
+                </div> */}
                 <div className="py-2 text-sm text-gray-700 dark:text-gray-200"
                   aria-labelledby="dropdownAvatarNameButton">
                     <a
