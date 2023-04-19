@@ -11,12 +11,7 @@ import { Users } from "./page/DashboardCL/Users/Users";
 import { Discover } from "./page/Discover/Discover";
 import { ProductList } from "./components/ProductList/ProductList";
 import { checkAuth } from "./checkAuth/checkAuth";
-import { PublicRoute } from "./router/PublicRoute";
-import { PrivateRoute } from "./router/PrivateRoute";
 import { useSelector } from "react-redux";
-import { ConoceLatRoutes } from "./router/ConoceLatRoutes";
-import { HomeLoggedIn } from "./page/HomeCL/HomeLoggedIn";
-import { HomeRoutes } from "./router/HomeRoutes";
 
 function App() {
   const dataUser = useSelector((state) => state.auth);
