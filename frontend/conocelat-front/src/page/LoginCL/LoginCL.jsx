@@ -9,16 +9,16 @@ export const LoginCL = () => {
     setLoginUser,
     formDataLogin,
     setFormDataLogin,
-    errorsLogin, 
+    errorsLogin,
     setErrorsLogin,
-    isSubmittedLogin, 
+    isSubmittedLogin,
     setIsSubmittedLogin,
-    loginUser
+    loginUser,
   } = useContext(UserContext);
   const dispatch = useDispatch();
 
   const handleButtomLogin = () => {
-    setFormDataLogin({ emailLogin: "", passwordsLogin: ""});
+    setFormDataLogin({ emailLogin: "", passwordsLogin: "" });
     setErrorsLogin({});
     setIsSubmittedLogin(false);
     setLoginUser(false);
@@ -31,25 +31,10 @@ export const LoginCL = () => {
     dispatch(startLoginWithEmailPassword({formDataLogin,setLoginUser,newErrorLogin,setErrorsLogin}));
   };
 
-  const validate = () => {
-    const newErrorLogin = {};
-    let result = true;
-    if (formDataLogin.emailLogin === "" || formDataLogin.emailLogin === null) {
-      result = false;
-      newErrorLogin.emailLogin="No ingreso el email"
-    }
-    if (formDataLogin.passwordsLogin === "" || formDataLogin.passwordsLogin === null) {
-      result = false;
-      newErrorLogin.passwordsLogin="No ingreso el password"
-    }
-    setErrorsLogin(newErrorLogin);
-    return result;
-  };
-
   return (
     <div
-    style={{ display: loginUser ? "block" : "none" }}
-    className="form-container"
+      style={{ display: loginUser ? "block" : "none" }}
+      className="form-container"
     >
       <div className="form-data-container">
         <div className="form-data-login">
@@ -130,7 +115,5 @@ export const LoginCL = () => {
         </div>
       </div>
     </div>
-
-
-  )
-}
+  );
+};

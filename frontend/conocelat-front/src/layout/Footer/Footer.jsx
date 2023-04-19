@@ -4,7 +4,7 @@ import "./Footer.css";
 
 export const Footer = () => {
   return (
-    <footer className="footer-container bg-slate-500 px-4 py-4 space-y-8  md:space-y-0 md:px-8">
+    <footer className="footer-container bg-blue-800 px-4 py-4 space-y-8  md:space-y-0 md:px-8">
       <div className="data-footer">
         <div className="flex justify-center md:justify-end space-x-4">
           <img src={logo} alt="logo" />
