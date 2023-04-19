@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import { UserContext } from '../../context/userContext';
+import React, { useContext } from "react";
+import { UserContext } from "../../context/userContext";
 
 export const LoginCL = () => {
   const {
@@ -7,24 +7,21 @@ export const LoginCL = () => {
     setLoginUser,
     formDataLogin,
     setFormDataLogin,
-    errorsLogin, 
+    errorsLogin,
     setErrorsLogin,
-    isSubmittedLogin, 
+    isSubmittedLogin,
     setIsSubmittedLogin,
-    loginUser
+    loginUser,
   } = useContext(UserContext);
 
-
   const handleButtomLogin = () => {
-    setFormDataLogin({ emailLogin: "", passwordsLogin: ""});
+    setFormDataLogin({ emailLogin: "", passwordsLogin: "" });
     setErrorsLogin({});
     setIsSubmittedLogin(false);
     setLoginUser(false);
-    console.log("login");
   };
 
   const handleLogin = (e) => {
-    console.log("ccamaaa")
     e.preventDefault();
     setIsSubmittedLogin(true);
     const newErrorLogin = {};
@@ -36,7 +33,7 @@ export const LoginCL = () => {
         .then((resp) => {
           console.log(resp);
           if (Object.keys(resp).length === 0) {
-            newErrorLogin.emailLogin="Ingrese un email valido"
+            newErrorLogin.emailLogin = "Ingrese un email valido";
             console.log("Please ingrese un usuario valido");
           } else {
             if (resp.passwords === formDataLogin.passwordsLogin) {
@@ -45,12 +42,11 @@ export const LoginCL = () => {
               // cerrar ventana de login
               setLoginUser(false);
             } else {
-              newErrorLogin.passwordsLogin="Ingrese credenciales validas"
+              newErrorLogin.passwordsLogin = "Ingrese credenciales validas";
               console.log("Porfavor ingrese crendenciales validas");
             }
           }
           setErrorsLogin(newErrorLogin);
-          console.log("ccamacccc")
         })
         .catch((err) => {
           console.log(err.message);
@@ -63,11 +59,14 @@ export const LoginCL = () => {
     let result = true;
     if (formDataLogin.emailLogin === "" || formDataLogin.emailLogin === null) {
       result = false;
-      newErrorLogin.emailLogin="No ingreso el email"
+      newErrorLogin.emailLogin = "No ingreso el email";
     }
-    if (formDataLogin.passwordsLogin === "" || formDataLogin.passwordsLogin === null) {
+    if (
+      formDataLogin.passwordsLogin === "" ||
+      formDataLogin.passwordsLogin === null
+    ) {
       result = false;
-      newErrorLogin.passwordsLogin="No ingreso el password"
+      newErrorLogin.passwordsLogin = "No ingreso el password";
     }
     setErrorsLogin(newErrorLogin);
     return result;
@@ -75,8 +74,8 @@ export const LoginCL = () => {
 
   return (
     <div
-    style={{ display: loginUser ? "block" : "none" }}
-    className="form-container"
+      style={{ display: loginUser ? "block" : "none" }}
+      className="form-container"
     >
       <div className="form-data-container">
         <div className="form-data-login">
@@ -157,7 +156,5 @@ export const LoginCL = () => {
         </div>
       </div>
     </div>
-
-
-  )
-}
+  );
+};

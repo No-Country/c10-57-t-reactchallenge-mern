@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState, useEffect } from "react";
 
 export default function Imagen({ id, url1 }) {
   const [img, setimg] = useState("");
@@ -16,13 +15,23 @@ export default function Imagen({ id, url1 }) {
     setimg(imgList);
   };
 
-  console.log(img);
-  return (<>
-<div class="flex justify-center items-start">
-    {img.length === 0 ? <img className='w-60 h-60 px-0.5' src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/300px-Imagen_no_disponible.svg.png" alt="imagen no dosponible" /> :
-      <img className='sm:w-30 md:w-80 sm:h-20 md:h-60 rounded' src={img[0].imageUrl} alt={img[0].imageTitle} />}</div>
-
-  </>)
+  return (
+    <>
+      <div class="bg-cover">
+        {img.length === 0 ? (
+          <img
+            className="bg-cover w-full h-30 md:h-60 rounded-t-lg"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/300px-Imagen_no_disponible.svg.png"
+            alt="imagen no dosponible"
+          />
+        ) : (
+          <img
+            className="bg-cover w-full h-30 md:h-60 rounded-t-lg"
+            src={img[0].imageUrl}
+            alt={img[0].imageTitle}
+          />
+        )}
+      </div>
+    </>
+  );
 }
-
-

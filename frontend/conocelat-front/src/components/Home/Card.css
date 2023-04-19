@@ -40,6 +40,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  border-radius: 24px;
 }
 /*.close-card {
   margin-left: 80%;
@@ -58,21 +59,18 @@
   font-size: 0.8rem;
   line-height: 1rem;
  }*/
- .caracteristicas{
+.caracteristicas {
   height: 25px;
   width: 25px;
 }
 /* ------------------*/
-@media screen and (min-width:280px) and (max-width:480px) {
-   /*mobile*/
- 
- 
+@media screen and (min-width: 280px) and (max-width: 480px) {
+  /*mobile*/
 }
-@media screen and (min-width:480px) and (max-width:768px) {
-   /*tablet*/
- 
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  /*tablet*/
 }
-@media screen and (min-width: 768px)  {
+@media screen and (min-width: 768px) {
   /*desktop*/
   .popup-content {
     background-color: white;
@@ -82,6 +80,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    border-radius: 12px;
   }
   /*.card-foto {
     height: 50%;
@@ -89,9 +88,8 @@
     border-radius: 5%;
     margin-left: 5%;
   }*/
- 
+
   .close {
-    margin-top: 2%;  
+    margin-top: 2%;
   }
-  
 }
