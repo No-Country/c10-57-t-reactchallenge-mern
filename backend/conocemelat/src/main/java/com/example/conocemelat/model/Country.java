@@ -11,14 +11,24 @@ public class Country {
     private Long idCountry;
 
     @Column(name = "country_name", nullable = false, unique = true)
+<<<<<<< HEAD
     private String cityName;
+=======
+    private String countryName;
+>>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
 
     public Country() {
     }
 
+<<<<<<< HEAD
     public Country(Long idCountry, String cityName) {
         this.idCountry = idCountry;
         this.cityName = cityName;
+=======
+    public Country(Long idCountry, String countryName) {
+        this.idCountry = idCountry;
+        this.countryName = countryName;
+>>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
     }
 
     public Long getIdCountry() {
@@ -29,11 +39,20 @@ public class Country {
         this.idCountry = idCountry;
     }
 
+<<<<<<< HEAD
     public String getCityName() {
         return cityName;
     }
 
     public void setCityName(String cityName) {
         this.cityName = cityName;
+=======
+    public String getCountryName() {
+        return countryName;
+    }
+
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
+>>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
     }
 }

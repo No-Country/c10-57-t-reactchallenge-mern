@@ -1,0 +1,109 @@
+.container-products{
+    margin-top: 10px;
+  }
+  .data-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .button-register{
+    background-color: rgb(44, 83, 210);
+    border-radius: 10px;
+    padding:8px 15px;
+    color: white;
+  }
+  .data-tbody{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  }
+  .data-table td {
+  background-color: rgb(241, 253, 249);
+  max-width: 25px; /* Ajusta el valor según tus necesidades */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  }
+  
+  .button-delete{
+    color: white;
+    padding: 2px 6px;
+    border-radius: 5px;
+  }
+  .button-editar{
+    color: white;
+    padding: 2px 10px;
+    border-radius: 5px;
+  }
+  @media (min-width: 640px) {
+    table {
+      display: inline-table !important;
+    }
+  
+    thead tr:not(:first-child) {
+      display: none;
+    }
+  }
+  
+  td:not(:last-child) {
+    border-bottom: 0;
+  }
+  
+  th:not(:last-child) {
+    border-bottom: 2px solid rgba(0, 0, 0, .1);
+  }
+  
+  @media screen and (min-width: 320px) and (max-width:767px) {
+    .container-products{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(222, 222, 224);
+    }
+    .data-header{
+      display: flex;
+      align-items: center;
+      gap: 170px;
+    }
+    .data-table{
+      display: flex!important;
+      align-items:normal;
+      justify-content: center!important;
+    }
+    .data-thead{
+      max-width: 200px;
+    }
+    .data-tbody{
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px;
+    }
+    .data-table td {
+      background-color: rgb(250, 250, 250);
+      max-width: 250px; /* Ajusta el valor según tus necesidades */
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  @media screen and (min-width: 768px) and (max-width:1023px) {
+    
+    .data-tbody{
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      background-color: yellow;
+    }
+    .data-header{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 550px;
+    }
+    .data-table td {
+      max-width: 200px; /* Ajusta el valor según tus necesidades */
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }

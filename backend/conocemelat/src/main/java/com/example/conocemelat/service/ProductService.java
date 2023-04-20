@@ -22,9 +22,15 @@ public interface ProductService {
 
     public List<Product> findAllProductsByCity(Long id);
 
+<<<<<<< HEAD
    // public List<Product> findProductsByDate(Date checkIn, Date checkOut);
 
     //public List<Product> findAllProductsByCityAndDate(Date checkIn, Date CheckOut, Long id);
+=======
+    public List<Product> findProductsByDate(Date checkInDay, Date checkOutDay);
+
+    public List<Product> findAllProductsByCityAndDate(Date checkInDay, Date checkOutDay, Long id);
+>>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
 
     //public List<Product> findAllProductsByproductAvailable(Boolean available);
 
