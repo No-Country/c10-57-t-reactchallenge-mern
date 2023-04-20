@@ -72,6 +72,7 @@ Postman
 
 ## Deploy: 
 
-Railway 
+https://conocelat-backend-production.up.railway.app/swagger-ui.html
+https://conocelat.netlify.app/
 
 Azure
