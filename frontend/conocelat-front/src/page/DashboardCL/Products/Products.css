@@ -92,7 +92,6 @@ th:not(:last-child) {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    background-color: yellow;
   }
   .data-header{
     display: flex;
