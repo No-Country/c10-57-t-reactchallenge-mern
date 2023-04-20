@@ -106,7 +106,7 @@ export const ModalProduct = ({ popupRef, handlePopup, atraccion }) => {
                   Precio por persona: {atraccion.productPrice}
                 </h2>
 
-                <div className="flex-col">
+                <div className="flex items-center">
                   {/*<select
                     className=" bg-white border border-gray-400 hover:border-gray-500 sm:py-0 lg:py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline font-bold mr-1"
                     name="opciones"
@@ -122,7 +122,7 @@ export const ModalProduct = ({ popupRef, handlePopup, atraccion }) => {
                     ))}
                   </select>*/}
 
-                  <div className="data__Wheregoing">
+                  <div className="data__Wheregoing max-h-10">
                     <div className="data__inputs">
                       <input
                         className="input-data"
@@ -132,19 +132,24 @@ export const ModalProduct = ({ popupRef, handlePopup, atraccion }) => {
                         onChange={handleCheckInDateChange}
                       />
                       <input
-                        className="input-data"
+                        className="input-data "
                         placeholder="fecha de retorno"
                         type="date"
                         value={checkOutDate}
                         onChange={handleCheckOutDateChange}
-                      />
+                      /> 
                     </div>
                   </div>
-                  <button className=" mr-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded card-button" onClick={handleCarrito}>
-                    Agregar al carrito
+                 <button className=" mr-2 mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded card-button self-center " onClick={handleCarrito}>
+                    <span className="material-symbols-outlined">
+                      add_shopping_cart
+                    </span>
                   </button>
                 </div>
+
+
               </div>
+
             </div>
           </div>
         </div>
