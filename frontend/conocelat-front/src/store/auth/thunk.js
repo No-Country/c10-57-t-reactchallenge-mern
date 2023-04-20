@@ -45,6 +45,8 @@ export const startLoginWithEmailPassword = (data) => {
         dispatch(login(reponseUser));
         setLoginUser(false)
         console.log("token",dataUser)
+        console.log("dolo",dataUser.user_id);
+        localStorage.setItem("user_id",dataUser.user_id)
       } catch (error) {
         console.log(error)
       }

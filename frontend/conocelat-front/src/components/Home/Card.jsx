@@ -1,6 +1,9 @@
 import React, { useRef } from "react";
 import "./Card.css";
 import Imagen from "./Imagen";
+import { Search } from "./Search";
+import Calendar from "./Calendar";
+import Calendar2 from "./Calendar";
 
 const Card = ({ atraccion }) => {
   const popupRef = useRef(null);
@@ -9,23 +12,25 @@ const Card = ({ atraccion }) => {
     popupRef.current.classList.toggle("show");
   };
 
-  //select de cantidad:
+  /*select de cantidad:
   const opciones = [
     { value: 1, label: "1" },
     { value: 2, label: "2" },
     { value: 3, label: "3" },
     { value: 4, label: "4" },
     { value: 5, label: "5" },
-  ];
+  ];*/
   const handleCarrito = ()=>{
     alert("click")
     popupRef.current.classList.toggle("show");
-    const idProd = atraccion[i].productAvailable
-    console.log(idProd);
   }
+  const idProd= atraccion.idProduct 
+  const userId = localStorage.getItem("user_id")
+  const total = atraccion.productPrice
   return (
     <div className="max-w-sm rounded-lg overflow-hidden shadow-md sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl gap-12 m-2 card-container">
       <Imagen id={atraccion.idProduct}></Imagen>
+ 
 
       <div className="px-6 py-4 card-information">
         <div className="font-bold text-xl mb-2">{atraccion.productTitle}</div>
@@ -53,6 +58,8 @@ const Card = ({ atraccion }) => {
             X
           </button>
           <Imagen id={atraccion.idProduct}></Imagen>
+         
+       
           <div className="font-bold text-xl mb-2">{atraccion.productTitle}</div>
           <p className="text-gray-700 text-base italic">
             {atraccion.city.cityName}
@@ -77,9 +84,9 @@ const Card = ({ atraccion }) => {
           <h2 className="mt-4 font-bold justify-end ">
             Precio por persona: {atraccion.productPrice}
           </h2>
-
-          <div className="flex ">
-            <select
+          <Calendar2></Calendar2>
+          <div className="flex justify-center">
+           {/* <select
               className=" bg-white border border-gray-400 hover:border-gray-500 sm:py-0 lg:py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline font-bold mr-1"
               name="opciones"
               defaultValue="" 
@@ -92,9 +99,9 @@ const Card = ({ atraccion }) => {
                   {opcion.label}
                 </option>
               ))}
-            </select>
-
-            <button className=" mr-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded card-button" onClick={handleCarrito}>
+            </select>*/}
+           
+            <button className=" mr-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded card-button h-12" onClick={handleCarrito}>
               Agregar al carrito
             </button>
           </div>
