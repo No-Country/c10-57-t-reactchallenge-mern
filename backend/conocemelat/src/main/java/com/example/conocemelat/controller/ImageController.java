@@ -45,6 +45,29 @@ public class ImageController {
 
         return response;
     }
+
+    @PutMapping("/update")
+    @PermitAll
+    public ResponseEntity<Image> updateImage(@RequestBody Image image){
+        return ResponseEntity.ok(imageService.updateImage(image));
+    }
+
+    @DeleteMapping("/delete/{id}")
+    @PermitAll
+    public ResponseEntity<Image> deleteImage(@PathVariable Integer id){
+        ResponseEntity<Image> response;
+
+        if (imageService.getImageById(Long.valueOf(id))!=null){
+            imageService.deleteImage(Long.valueOf(id));
+            response = ResponseEntity.ok().build();
+        }else
+        {
+            response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
+        return response;
+    }
+
     @GetMapping("/product/{id}")
     @PermitAll
     public ResponseEntity<List<Image>> findAllImagesByProduct(@PathVariable Long id){
