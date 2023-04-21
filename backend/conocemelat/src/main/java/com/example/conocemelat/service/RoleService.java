@@ -9,6 +9,8 @@ public interface RoleService {
 
     public Role saveRole(Role user);
 
+    public Role updateRole(Role user);
+
     public Role getRoleById(Long id);
 
     public void deleteRole(Long id);

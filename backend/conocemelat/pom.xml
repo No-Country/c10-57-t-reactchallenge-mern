@@ -37,12 +37,6 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.4.200</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
@@ -65,8 +59,6 @@
             <version>5.3.23</version>
         </dependency>
 
-<<<<<<< HEAD
-=======
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
@@ -116,7 +108,6 @@
             <scope>test</scope>
         </dependency>
         -->
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
     </dependencies>
 
     <build>

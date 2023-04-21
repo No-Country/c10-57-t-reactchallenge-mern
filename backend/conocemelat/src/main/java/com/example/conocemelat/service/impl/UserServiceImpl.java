@@ -30,23 +30,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-<<<<<<< HEAD
-=======
     public User updateUser(User user) {
         return userRepository.save(user);
     }
 
     @Override
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
 
-<<<<<<< HEAD
-=======
     @Override
     public User getRole(Long id) {
         return userRepository.getReferenceById(id);
     }
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
 }

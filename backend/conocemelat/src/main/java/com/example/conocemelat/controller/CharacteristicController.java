@@ -7,10 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-<<<<<<< HEAD
-=======
 import javax.annotation.security.PermitAll;
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
 import java.util.List;
 
 @CrossOrigin
@@ -22,29 +19,20 @@ public class CharacteristicController {
     private CharacteristicService characteristicService;
 
     @PostMapping("/save")
-<<<<<<< HEAD
-=======
     //no tenia el permitAll
     @PermitAll
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
     public ResponseEntity<Characteristic> saveCharacteristic(@RequestBody Characteristic characteristic){
         return ResponseEntity.ok(characteristicService.saveCharacteristic(characteristic));
     }
 
     @GetMapping("/list")
-<<<<<<< HEAD
-=======
     @PermitAll
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
     public ResponseEntity<List<Characteristic>> listAllCharacteristic(){
         return ResponseEntity.ok(characteristicService.listAllCharacteristic());
     }
 
     @GetMapping("/get/{id}")
-<<<<<<< HEAD
-=======
     @PermitAll
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
     public ResponseEntity<Characteristic> getCharacteristicById(@PathVariable Integer id){
         ResponseEntity<Characteristic> response;
 
@@ -55,6 +43,33 @@ public class CharacteristicController {
             response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
 
+        return response;
+    }
+
+    @PutMapping("/update")
+    @PermitAll
+    public ResponseEntity<Characteristic> updateCharacteristic(@RequestBody Characteristic characteristic){
+        ResponseEntity<Characteristic> response;
+        if (characteristic.getIdCharacteristic() != null && characteristicService.getCharacteristicById(characteristic.getIdCharacteristic()) != null){
+            response = ResponseEntity.ok(characteristicService.saveCharacteristic(characteristic));
+        }else
+        {
+            response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return response;
+    }
+
+    @DeleteMapping("/delete/{id}")
+    @PermitAll
+    public ResponseEntity<Characteristic> deleteCharacteristic(@PathVariable Integer id){
+        ResponseEntity<Characteristic> response;
+        if (characteristicService.getCharacteristicById(Long.valueOf(id))!=null){
+            characteristicService.deleteCharacteristic(Long.valueOf(id));
+            response = ResponseEntity.ok().build();
+        }else
+        {
+            response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
         return response;
     }
 
