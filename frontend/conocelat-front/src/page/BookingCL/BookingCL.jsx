@@ -15,16 +15,17 @@ export const BookingCL = () => {
   return (
     <div className="container-booking">
       <div className='booking-data'>
-      <div className="container mx-auto">
-        <div className="grid gap-8 px-4 my-8 md:p-0 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center">
-        {
-          bookins.length === 0 ? (
-          <p>No hay booking</p>
-          ) : (
-          bookins.map((booking, index) => <CardBooking booking={booking} key={index} />)
-          )}
+        <div className="container mx-auto">
+          <div className="grid gap-8 px-4 my-8 md:p-0 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-4 justify-center">
+            {
+              bookins.length === 0 ? (
+              <div className="font-bold text-lg">No hay Reservas</div>
+              ) : (
+              bookins.map((booking, index) => <CardBooking booking={booking} key={index} />)
+              )
+            }
+          </div>
         </div>
-      </div>
       </div>
     </div>
   )
