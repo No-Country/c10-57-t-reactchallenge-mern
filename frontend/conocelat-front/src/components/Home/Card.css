@@ -94,3 +94,8 @@
     margin-top: 2%;
   }
 }
+.material-symbols-outlined {
+  font-family: 'Material Icons Outlined', sans-serif;
+  font-size: 2em;
+  font-weight: 100;
+}
