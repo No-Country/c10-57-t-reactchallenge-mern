@@ -12,7 +12,7 @@ export const Users = () => {;
   return (
     <div className='container-products'>
       <div className='data-header'>
-        <p>Productos</p>
+        <p>Usuarios</p>
       </div>
       <div className='flex items-center justify-center'>
         <div className='container'>

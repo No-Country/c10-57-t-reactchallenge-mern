@@ -54,14 +54,17 @@ export const ModalProduct = ({ popupRef, handlePopup, atraccion }) => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log("La reserva se ha guardado correctamente:", data);
+        //console.log("La reserva se ha guardado correctamente:", data);
+        alert("La reserva se ha guardado correctamente:",data);
       } else {
-        console.error("Lo siento, reserva no disponible:", response.statusText);
+        //console.error("Lo siento, reserva no disponible:", response.statusText);
+        alert("Lo siento, reserva no disponible:", response.statusText);
       }
     } catch (error) {
       console.error("Lo siento, reserva no disponible:", error);
+      alert("Lo siento, reserva no disponible:", error);
     }
-    alert("Reserva exitosa");
+    //alert("Reserva exitosa");
 
     popupRef.current.classList.toggle("show");
   };

@@ -4,33 +4,17 @@ import user from '../../assets/usuario.png'
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { sidebarDashboard } from '../../helpers/sidebarDashboard';
 import { ModalButton } from '../../components/Modal/ModalButton';
+import { useSelector } from 'react-redux';
 
 export const DashboardCL = () => {
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   return () => {
-  //     navigate('/', { replace: true });
-  //   };
-  // }, [navigate]);
-
-  // useEffect(() => {
-  //   return () => {
-  //     if(dataUser.status==="not-authenticated"){
-  //       navigate('/', { replace: true });
-  //     }
-  //     else{
-  //       navigate('/Dashboard', { replace: true });
-  //     }
-  //   };
-  // }, [navigate]);
-
+  const dataUser = useSelector((state) => state.auth);
   return (
     <div className="container-dashboard">
       <div className='dashboard-data'>
         <div className='dashboard-data__opcion'>
           <div className='data-user'>
             <img src={user} className='img-user' alt="ss" width="180px" />
-            <p>Jose Armando</p>
+            <p>{dataUser.userName}</p>
           </div>
           <div className='data-opcion'>
             {

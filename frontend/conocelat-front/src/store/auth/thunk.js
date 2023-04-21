@@ -59,5 +59,6 @@ export const startLogout = () => {
     // dispatch(clearNotesLogout());
     dispatch(logout({}));
     localStorage.removeItem("token");
+    localStorage.removeItem("user_id");
   };
 };
