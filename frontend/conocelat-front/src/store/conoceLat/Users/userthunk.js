@@ -1,5 +1,6 @@
+import { listBookinUser } from "../../../api/listBookinUser";
 import { listUsers } from "../../../api/listUsers";
-import { setlistUser } from "./usersSlice";
+import { setListBookinId, setlistUser } from "./usersSlice";
 
 export const startListUsers = () => {
     return async (dispatch) => {
@@ -8,3 +9,10 @@ export const startListUsers = () => {
         console.log(data)
     };
 };
+
+export const startListBookingId =(id)=>{
+    return async (dispatch)=>{
+        const data = await listBookinUser(id)
+        dispatch(setListBookinId({ bookins: data }));
+    }
+}
