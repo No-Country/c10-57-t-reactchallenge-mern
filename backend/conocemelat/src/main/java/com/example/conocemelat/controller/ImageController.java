@@ -7,10 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-<<<<<<< HEAD
-=======
 import javax.annotation.security.PermitAll;
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
 import java.util.List;
 
 @CrossOrigin
@@ -22,29 +19,20 @@ public class ImageController {
     private ImageService imageService;
 
     @PostMapping("/save")
-<<<<<<< HEAD
-=======
     //no tenia el permitAll
     @PermitAll
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
     public ResponseEntity<Image> saveImage(@RequestBody Image image){
         return ResponseEntity.ok(imageService.saveImage(image));
     }
 
     @GetMapping("/list")
-<<<<<<< HEAD
-=======
     @PermitAll
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
     public ResponseEntity<List<Image>> listAllImage(){
         return ResponseEntity.ok(imageService.listAllImages());
     }
 
     @GetMapping("/get/{id}")
-<<<<<<< HEAD
-=======
     @PermitAll
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
     public ResponseEntity<Image> getImageById(@PathVariable Integer id){
         ResponseEntity<Image> response;
 
@@ -57,12 +45,31 @@ public class ImageController {
 
         return response;
     }
-    @GetMapping("/product/{id}")
-<<<<<<< HEAD
-    //@PermitAll
-=======
+
+    @PutMapping("/update")
     @PermitAll
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
+    public ResponseEntity<Image> updateImage(@RequestBody Image image){
+        return ResponseEntity.ok(imageService.updateImage(image));
+    }
+
+    @DeleteMapping("/delete/{id}")
+    @PermitAll
+    public ResponseEntity<Image> deleteImage(@PathVariable Integer id){
+        ResponseEntity<Image> response;
+
+        if (imageService.getImageById(Long.valueOf(id))!=null){
+            imageService.deleteImage(Long.valueOf(id));
+            response = ResponseEntity.ok().build();
+        }else
+        {
+            response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
+        return response;
+    }
+
+    @GetMapping("/product/{id}")
+    @PermitAll
     public ResponseEntity<List<Image>> findAllImagesByProduct(@PathVariable Long id){
         return ResponseEntity.ok(imageService.findAllImagesByProduct(id));
     }

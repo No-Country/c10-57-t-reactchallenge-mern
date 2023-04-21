@@ -7,10 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 
-<<<<<<< HEAD
-=======
 import java.util.Date;
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
 import java.util.List;
 
 @Repository
@@ -21,16 +18,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("SELECT p FROM Product p WHERE p.city.id = ?1")
     List<Product> findAllProductsByCity(Long id_city);
 
-<<<<<<< HEAD
-   // @Query("SELECT p FROM Product p WHERE p.available = ?1")
-    //List<Product>findAllProductsByproductAvailable(Boolean available);
-
-   // @Query(value = "SELECT p.* FROM product p WHERE p.id_product NOT IN (SELECT distinct b.id_product FROM booking b WHERE (:check_in is null OR b.check_in_day BETWEEN :check_in AND :check_out) AND (:check_out is null OR b.check_out_day  BETWEEN :check_in AND :check_out) AND (b.check_in_day >= CURDATE()));",nativeQuery = true)
-    //List<Product> findProductsByDate(@Param("check_in") Date checkIn, @Param("check_out")Date CheckOut);
-
-    //@Query(value = "SELECT p.* FROM product p WHERE p.id_product NOT IN (SELECT distinct b.id_product FROM booking b WHERE (:check_in is null OR b.check_in_day BETWEEN :check_in AND :check_out) AND (:check_out is null OR b.check_out_day  BETWEEN :check_in AND :check_out) AND (b.check_in_day >= CURDATE())) AND (:id_city IS NULL OR p.id_city = :id_city);", nativeQuery = true)
-    //List<Product> findAllProductsByCityAndDate(@Param("check_in")Date checkIn, @Param("check_out")Date CheckOut, @Param("id_city")Long id);
-=======
    //@Query("SELECT p FROM Product p WHERE p.available = ?1")
     //List<Product>findAllProductsByproductAvailable(Boolean available);
 
@@ -42,5 +29,4 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query(value = "SELECT p.* FROM Products p WHERE p.id_product NOT IN (SELECT distinct b.id_product FROM booking b WHERE (:check_in_day is null OR b.check_in BETWEEN :check_in_day AND :check_out_day) AND (:check_out_day is null OR b.check_out  BETWEEN :check_in_day AND :check_out_day) AND (b.check_in >= CURDATE())) AND (:id_city IS NULL OR p.id_city = :id_city);", nativeQuery = true)
     List<Product> findAllProductsByCityAndDate(@Param("check_in_day")Date checkInDay, @Param("check_out_day")Date checkOutDay, @Param("id_city")Long id);
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
 }

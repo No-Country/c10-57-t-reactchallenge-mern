@@ -7,10 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-<<<<<<< HEAD
-=======
 import javax.annotation.security.PermitAll;
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
 import java.util.List;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,29 +22,20 @@ public class BookingController {
     private BookingService bookingService;
 
     @PostMapping("/save")
-<<<<<<< HEAD
-=======
     //no tenia el permitAll
     @PermitAll
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
     public ResponseEntity<Booking> saveBooking(@RequestBody Booking booking){
         return ResponseEntity.ok(bookingService.saveBooking(booking));
     }
 
     @GetMapping("/list")
-<<<<<<< HEAD
-=======
     @PermitAll
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
     public ResponseEntity<List<Booking>> listAllBookings(){
         return ResponseEntity.ok(bookingService.listAllBookings());
     }
 
     @GetMapping("/get/{id}")
-<<<<<<< HEAD
-=======
     @PermitAll
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
     public ResponseEntity<Booking> getBookingById(@PathVariable Integer id){
         ResponseEntity<Booking> response;
 
@@ -61,10 +49,7 @@ public class BookingController {
     }
 
     @PutMapping("/update")
-<<<<<<< HEAD
-=======
     @PermitAll
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
     public ResponseEntity<Booking> updateBooking(@RequestBody Booking booking){
         ResponseEntity<Booking> response;
         if (booking.getIdBooking() != null && bookingService.getBookingById(booking.getIdBooking()) != null) {
@@ -76,21 +61,15 @@ public class BookingController {
     }
 
     @DeleteMapping("/delete/{id}")
-<<<<<<< HEAD
-=======
     @PermitAll
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
     public ResponseEntity<String> deleteBooking(@PathVariable Integer id){
         bookingService.deleteBooking(Long.valueOf(id));
         return ResponseEntity.ok().body("Deleted");
     }
 
     @GetMapping("/find")
-<<<<<<< HEAD
-=======
     //no tenia el permitAll
     @PermitAll
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
     public ResponseEntity<List<Booking>> findBookingsByDate(@RequestParam String checkIn, @RequestParam String checkOut) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date checkInDate = formatter.parse(checkIn);
@@ -98,8 +77,6 @@ public class BookingController {
         return ResponseEntity.ok(bookingService.findBookingsByDate(checkInDate, checkOutDate));
     }
 
-<<<<<<< HEAD
-=======
     @GetMapping("/product/{id}")
    @PermitAll
     public ResponseEntity<List<Booking>> listAllBookingsByProduct(@PathVariable Long id){
@@ -112,5 +89,4 @@ public class BookingController {
         return ResponseEntity.ok(bookingService.findAllBookingsByUser(id));
     }
 
->>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
 }
