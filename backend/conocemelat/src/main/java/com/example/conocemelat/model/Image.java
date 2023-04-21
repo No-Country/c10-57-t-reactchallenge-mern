@@ -10,10 +10,17 @@ public class Image {
     @Column(name = "id_image")
     private Long idImage;
 
+<<<<<<< HEAD
     @Column(name= "image_title", nullable = false, unique = true)
     private String imageTitle;
 
     @Column(name = "image_url", nullable = false, unique = true)
+=======
+    @Column(name= "image_title", nullable = false, unique = false)
+    private String imageTitle;
+
+    @Column(name = "image_url", nullable = false, unique = false)
+>>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
     private String imageUrl;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -24,7 +31,11 @@ public class Image {
     public Image() {
     }
 
+<<<<<<< HEAD
     public Image(Long idImage, String imageTitle, String imageUrl, Product product) {
+=======
+   public Image(Long idImage, String imageTitle, String imageUrl, Product product) {
+>>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
         this.idImage = idImage;
         this.imageTitle = imageTitle;
         this.imageUrl = imageUrl;

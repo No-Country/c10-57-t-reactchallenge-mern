@@ -18,6 +18,7 @@ public class Product {
     @Column(name = "product_title", nullable = false, unique = true)
     private String productTitle;
 
+<<<<<<< HEAD
     @Column(name = "product_description", nullable = false, unique = true)
     private String productDescription;
 
@@ -25,6 +26,15 @@ public class Product {
     private Double productPrice;
 
     @Column(name = "product_available", nullable = false, unique = true)
+=======
+    @Column(name = "product_description", nullable = false)
+    private String productDescription;
+
+    @Column(name = "product_price", nullable = false)
+    private Double productPrice;
+
+    @Column(name = "product_available", nullable = false)
+>>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
     private Boolean productAvailable;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -39,15 +49,33 @@ public class Product {
     @JoinTable(name = "product_has_characteristic", joinColumns = @JoinColumn(name = "id_product"), inverseJoinColumns = @JoinColumn(name = "id_characteristic"))
     private List<Characteristic> characteristics;
 
+<<<<<<< HEAD
     @JsonIgnore
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Image> imagesProduct=new HashSet<>();
+=======
+
+    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
+    @JsonIgnore
+    //private List<Image> imagesProduct;
+    private Set<Image> imagesProduct =new HashSet<Image>();
+
+    /*@OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="id_product")
+    private List<Image> imagesProduct;*/
+
+
+>>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
 
     public Product() {
     }
 
+<<<<<<< HEAD
     public Product(Long idProduct, String productTitle, String productDescription, Double productPrice, Boolean productAvailable, City city, Category category, List<Characteristic> characteristics, Set<Image>imagesProduct
 ) {
+=======
+    public Product(Long idProduct, String productTitle, String productDescription, Double productPrice, Boolean productAvailable, City city, Category category, List<Characteristic> characteristics, Set<Image> imagesProduct) {
+>>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
         this.idProduct = idProduct;
         this.productTitle = productTitle;
         this.productDescription = productDescription;
@@ -134,11 +162,19 @@ public class Product {
         this.characteristics = characteristics;
     }
 
+<<<<<<< HEAD
     public Set<Image> getImages() {
         return imagesProduct;
     }
 
     public void setImages(Set<Image> images) {
+=======
+    public Set<Image> getImagesProduct() {
+        return imagesProduct;
+    }
+
+    public void setImagesProduct(Set<Image> imagesProduct) {
+>>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
         this.imagesProduct = imagesProduct;
     }
 }

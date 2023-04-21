@@ -40,5 +40,18 @@ public class BookingServiceImpl implements BookingService {
         return (List<Booking>) bookingRepository.findBookingByDate(checkIn, checkOut);
     }
 
+<<<<<<< HEAD
+=======
+    @Override
+    public List<Booking> findAllBookingsByProduct(Long id) {
+        return bookingRepository.findAllBookingsByProduct(id);
+    }
+
+    @Override
+    public List<Booking> findAllBookingsByUser(Long id) {
+        return bookingRepository.findAllBookingsByUser(id);
+    }
+
+>>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
 
 }

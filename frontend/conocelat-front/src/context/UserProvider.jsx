@@ -1,12 +1,71 @@
-import { useState } from "react"
+import { useState } from "react";
 import { UserContext } from "./userContext";
 
-export const UserProvider = ({children}) => {
-  const [register,setRegister]=useState(false);
-  const [start,setStart]=useState(true);
+export const UserProvider = ({ children }) => {
+  const [register, setRegister] = useState(false);
+  const [loginUser, setLoginUser] = useState(false);
+  const [userExists, setUserExists] = useState("");
+
+  // form data y validation
+  const [formData, setFormData] = useState({
+    role:{
+      idRole:2,
+      roleName:"user",
+    },
+    userName:"",
+    userLastName:"",
+    userEmail: "",
+    userPassword: "",
+    confirmPassword: "",
+  });
+  const [errors, setErrors] = useState({});
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // form data login y validation
+  const [formDataLogin, setFormDataLogin] = useState({
+    emailLogin: "",
+    passwordsLogin: "",
+  });
+  const [errorsLogin, setErrorsLogin] = useState({});
+  const [isSubmittedLogin, setIsSubmittedLogin] = useState(false);
+  const [state, setState] = useState(undefined);
+  const [userChoice, setUserChoice] = useState("");
+  const [categories, setCategories] = useState("");
+  const [filter, setFilter] = useState(undefined);
+  const [setIsOpenModalRegister,openModalRegister] = useState(false)
+
   return (
-    <UserContext.Provider value={{register,setRegister,start,setStart}}>
-        {children}
+    <UserContext.Provider
+      value={{
+        register,
+        setRegister,
+        loginUser,
+        setLoginUser,
+        userExists,
+        setUserExists,
+        formData,
+        setFormData,
+        errors,
+        setErrors,
+        isSubmitted,
+        setIsSubmitted,
+        formDataLogin,
+        setFormDataLogin,
+        errorsLogin,
+        setErrorsLogin,
+        isSubmittedLogin,
+        setIsSubmittedLogin,
+        state,
+        setState,
+        userChoice,
+        setUserChoice,
+        filter,
+        setFilter,
+        categories,
+        setCategories,
+      }}
+    >
+      {children}
     </UserContext.Provider>
-  )
-}
+  );
+};

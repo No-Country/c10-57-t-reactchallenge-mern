@@ -1,63 +1,95 @@
-.data-container{
-    background-color: white;
-    position: relative;
-    z-index: 10000;
+.data-container {
+  background-color: white;
+  position: relative;
+  z-index: 10000;
 }
 
-.navbar-container{
-
-    height: 68px;
+.navbar-container {
+  height: 10vh;
 }
 
-.navbar-link{
-    color: #ffffff;
-    font-family: SF Pro Display;
-    font-style:regular;
-    font-size: 16px;
-
+.navbar-link {
+  color: #ffffff;
+  font-family: SF Pro Display;
+  font-style: regular;
+  font-size: 16px;
 }
-.data__container-option{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 100%;
+.data__container-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
 }
-.data__container-logo{
-    display: flex;
-    justify-content: space-between;
+.data__container-logo {
+  padding: 0px 5px;
+  display: flex;
+  justify-content: space-between;
 }
-.data__container-buttom{
-    display: flex;
-    align-items: center;
-    gap: 25px;
+.data__container-menu {
+  display: inline-flex;
+  flex-direction: row;
+  background-color: rgb(255, 255, 255);
 }
-
-.buttom-register{
-    padding: 10px 18px;
-    color: #2F80ED;
-    border: 2px solid #2F80ED;
-    border-radius: 6px;
-    font-size: 15px;
+.data__container-buttom {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.butoom-login{
-    background-color: #2F80ED;
-    color:#ffffff;
-    padding: 10px 18px;
-    border-radius: 6px;
-    font-family: SF Pro Display;
-    font-style: medium;
-    font-size: 15px;
-    line-height: 20px;
-    letter-spacing: 2%;
-}
-.menu{
-    background: #ffffff;
-    border-radius: 8px;
-    padding: 0.6em 1.2em;
-    cursor: pointer;;
+.buttom-register {
+  padding: 7px 18px;
+  color: #2f80ed;
+  border: 2px solid #2f80ed;
+  border-radius: 6px;
+  font-size: 15px;
 }
 
-.menu:focus, menu:focus-visible {
-    border-color: #93edf1;
+.butoom-login {
+  background-color: #2f80ed;
+  color: #ffffff;
+  padding: 10px 19px;
+  border-radius: 6px;
+  font-family: SF Pro Display;
+  font-style: medium;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 2%;
+}
+
+.menu {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  cursor: pointer;
+}
+
+.menu:focus,
+menu:focus-visible {
+  border-color: #93edf1;
+}
+
+.link-active {
+  color: #2f80ed;
+  display: inline;
+  border-bottom-width: 2px;
+  border-bottom-color: #2f80ed;
+  padding-bottom: 2px;
+}
+.link-inactive {
+  position: relative;
+  color: #000000;
+  display: inline-block;
+}
+.link-inactive:after {
+  content: "";
+  position: absolute;
+  background-color: #2f80ed;
+  height: 2px;
+  width: 0;
+  left: 0;
+  bottom: -3px;
+  transition: 0.3s;
+}
+.link-inactive:hover:after {
+  width: 100%;
 }

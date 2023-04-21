@@ -75,6 +75,7 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findAllProductsByCity(id);
     }
 
+<<<<<<< HEAD
     //@Override
     //public List<Product> findAllProductsByproductAvailable(Bolean available) {
        // return productRepository.findAllProductsByproductAvailable(available);
@@ -89,5 +90,21 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> findAllProductsByCityAndDate(Date checkIn, Date checkOut, Long id) {
         return productRepository.findAllProductsByCityAndDate(checkIn, checkOut, id);
     }*/
+=======
+    @Override
+    public List<Product> findProductsByDate(Date checkInDay, Date checkOutDay) {
+        return productRepository.findProductsByDate(checkInDay, checkOutDay);
+    }
+
+    @Override
+    public List<Product> findAllProductsByCityAndDate(Date checkInDay, Date checkOutDay, Long id) {
+        return productRepository.findAllProductsByCityAndDate(checkInDay, checkOutDay, id);
+    }
+
+    //@Override
+    //public List<Product> findAllProductsByproductAvailable(Boolean available) {
+      //  return productRepository.findAllProductsByproductAvailable(available);
+    //}
+>>>>>>> 83da693dbe810f2162a0966e2450fbfe820da72b
 
 }
