@@ -1,79 +1,82 @@
-# ConoceLat 
-# c10-57-t-reactchallenge-mern
+<p align="center">
+  <img src="https://i.imgur.com/2DomYQQ.png" height="300" width="500">
+</p>
 
-## Objetivo general:
-
-Crear una plataforma digital que promueva el turismo en latinoamérica, brindando información útil y actualizada sobre los lugares turísticos más populares de cada destino donde se puedan reservar entradas para los mismos. 
+<h1 align="center">ConoceLat 🌎🧳🌴</h1>
 
 
-## Objetivos específicos:
+## Objetivo general 🎯
 
-Ofrecer una plataforma donde los usuarios puedan encontrar y comprar una variedad de opciones de excursiones en diferentes lugares de latinoamérica
-Proporcionar una plataforma que brinde una experiencia de usuario atractiva y facil de usar.
+Crear una plataforma digital que promueva el turismo en latinoamérica, brindando información útil y actualizada sobre los lugares turísticos más populares de cada destino donde se puedan reservar entradas para los mismos. 📱💻📊
 
-## Integrantes del equipo:
+## Objetivos específicos 📝
 
-Juan Gil -> TL
+Ofrecer una plataforma donde los usuarios puedan encontrar y comprar una variedad de opciones de excursiones en diferentes lugares de latinoamérica. 🗺️🧭🏝️
+Proporcionar una plataforma que brinde una experiencia de usuario atractiva y fácil de usar. 😍👨‍💻👩‍💻
 
-Dolores Alemán @dolores91 -> PM y FRONTEND
+## Integrantes del equipo 🤝
 
-Francis Daniela @FrancisM16 -> FRONTEND
+Juan Gil -> TL 🚀📊✅
 
-Jose Armando Cruz @ccama22 -> FRONTEND
+Dolores Alemán @dolores91 -> PM y FRONTEND 🚀💻🎨
 
-Brayan Rodallega @brayanrodallega -> BACKEND 
+Francis Daniela @FrancisM16 -> FRONTEND 🎨💻👩‍💻
 
-Maria Fernanda Garcia @mafegarciap > BACKEND 
+Jose Armando Cruz @ccama22 -> FRONTEND 🎨💻👨‍💻
 
-## Tecnologías utilizadas:
+Brayan Rodallega @brayanrodallega -> BACKEND 💻🔙🚀
+
+Maria Fernanda Garcia @mafegarciap -> BACKEND 💻🔙🎨
+
+## Tecnologías utilizadas 💻🔧
+
 Servicios/herramientas empleadas a la hora de realizar el desarrollo
 
+### Gestión del proyecto:
 
-Gestión del proyecto:
+Slack 💬
 
-Slack
+Google Meet 📞
 
-Google Meet
+Board de GitHub 📋
 
-Board de GitHub
+### Desarrollo del Proyecto:
 
-Desarrollo del Proyecto:
+IDEs: Visual Studio Code e Intellij IDEA. 💻💡
 
-IDEs: Visual Studio Code e Intellij IDEA.
+Sistemas de control de versiones: Git-Hub. 🐱‍👤🐙
 
-Sistemas de control de versiones: Git-Hub.
-
-Documentación: Swagger
+Documentación: Swagger 📝
 
 Tecnologías utilizadas para el desarrollo del sitio:
 
-Frontend:
+### Frontend:
 
-React
+React ⚛️
 
-Taiwind
+Taiwind 🎨
 
-Backend:
+### Backend:
 
-java
+java ☕️
 
-Spring boot
+Spring boot 🚀
 
-Maven
+Maven 📦
 
-Base de datos:
+### Base de datos:
 
-MySQL
+MySQL 🗃️
 
-Testing:
+### Testing:
 
-Postman
+Postman 🧪
 
+## Deploy 🚀
 
-## Deploy: 
+https://conocelat.netlify.app/ 🌎👨‍💻👩‍💻
 
-https://conocelat.netlify.app/
+documentación API: https://conocelat-backend-production.up.railway.app/swagger-ui.html 📝🚀🔧
 
-documentación API: https://conocelat-backend-production.up.railway.app/swagger-ui.html
+Azure ☁️
 
-Azure
